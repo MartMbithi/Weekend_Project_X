@@ -3,7 +3,7 @@
         <div class="modal-content">
             <form method="POST" action="logout">
                 <div class="modal-body text-center text-danger">
-                    <img src='../public/img/power.png' height="100px">
+                    <img src="../public/img/power.png" height="100px">
                     <h4>Terminate Session?</h4>
                     <button type="button" class="text-center btn btn-success" data-dismiss="modal">No</button>
                     <input type="submit" value="Yes, Logout" class="text-center btn btn-danger">

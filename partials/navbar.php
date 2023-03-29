@@ -74,7 +74,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-danger" data-target="#logout" data-toggle="modal" href="#" role="button">
+                <a class="nav-link text-danger" data-target="#end_session" data-toggle="modal" href="#" role="button">
                     <i class="fas fa-power-off"></i>
                 </a>
             </li>
