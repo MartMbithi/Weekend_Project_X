@@ -1,4 +1,4 @@
-<nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+<nav class="main-header navbar navbar-expand-md navbar-light navbar-white sticky-top">
     <div class="container">
         <a href="dashboard" class="navbar-brand">
             <img src="../public/img/logo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
