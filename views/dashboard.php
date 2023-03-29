@@ -47,7 +47,7 @@ require_once('../partials/head.php');
                                 <div class="info-box-content">
                                     <span class="info-box-text">Properties</span>
                                     <span class="info-box-number">
-                                        10
+                                        <?php echo $properties; ?>
                                     </span>
                                 </div>
                                 <!-- /.info-box-content -->
@@ -61,7 +61,7 @@ require_once('../partials/head.php');
                                 <div class="info-box-content">
                                     <span class="info-box-text">Houses</span>
                                     <span class="info-box-number">
-                                        10
+                                        <?php echo $houses; ?>
                                     </span>
                                 </div>
                                 <!-- /.info-box-content -->
@@ -75,7 +75,7 @@ require_once('../partials/head.php');
                                 <div class="info-box-content">
                                     <span class="info-box-text">Tenants</span>
                                     <span class="info-box-number">
-                                        10
+                                        <?php echo $tenants; ?>
                                     </span>
                                 </div>
                                 <!-- /.info-box-content -->
@@ -89,7 +89,7 @@ require_once('../partials/head.php');
                                 <div class="info-box-content">
                                     <span class="info-box-text">System Users</span>
                                     <span class="info-box-number">
-                                        10
+                                        <?php echo $users; ?>
                                     </span>
                                 </div>
                                 <!-- /.info-box-content -->
@@ -103,7 +103,7 @@ require_once('../partials/head.php');
                                 <div class="info-box-content">
                                     <span class="info-box-text">Vacant Houses</span>
                                     <span class="info-box-number">
-                                        10
+                                        <?php echo $vacant; ?>
                                     </span>
                                 </div>
                                 <!-- /.info-box-content -->
@@ -117,7 +117,7 @@ require_once('../partials/head.php');
                                 <div class="info-box-content">
                                     <span class="info-box-text">Occupied Houses</span>
                                     <span class="info-box-number">
-                                        10
+                                        <?php echo $occupied; ?>
                                     </span>
                                 </div>
                                 <!-- /.info-box-content -->
@@ -131,7 +131,7 @@ require_once('../partials/head.php');
                                 <div class="info-box-content">
                                     <span class="info-box-text">Cumulative Payments</span>
                                     <span class="info-box-number">
-                                        Kes 10
+                                        Kes <?php echo number_format($payment_amount, 2); ?>
                                     </span>
                                 </div>
                                 <!-- /.info-box-content -->
@@ -145,7 +145,7 @@ require_once('../partials/head.php');
                                 <div class="info-box-content">
                                     <span class="info-box-text">Cumulative Expenses</span>
                                     <span class="info-box-number">
-                                        Kes 10
+                                        Kes <?php echo number_format($expense_amount, 2); ?>
                                     </span>
                                 </div>
                                 <!-- /.info-box-content -->
