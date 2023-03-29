@@ -23,4 +23,18 @@
     <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/summernote/summernote-bs4.min.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/toastr/toastr.min.css">
+    <?php
+    /* Alert Sesion Via Alerts */
+    if (isset($_SESSION['success'])) {
+        $success = $_SESSION['success'];
+        unset($_SESSION['success']);
+    }
+    /* Alert Sesion Via Alerts */
+    if (isset($_SESSION['err'])) {
+        $err = $_SESSION['err'];
+        unset($_SESSION['err']);
+    }
+    ?>
 </head>

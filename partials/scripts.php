@@ -28,5 +28,27 @@
 <script src="<?php echo $base_dir; ?>../public/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo $base_dir; ?>../public/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<!-- Dashboard -->
 <script src="<?php echo $base_dir; ?>../public/js/pages/dashboard.js"></script>
+<!-- Toastr -->
+<script src="<?php echo $base_dir; ?>../public/plugins/toastr/toastr.min.js"></script>
+<!-- Load alerts -->
+<!-- Init  Alerts -->
+<?php if (isset($success)) { ?>
+    <!-- Pop Success Alert -->
+    <script>
+        toastr.success('<?php echo $success; ?>')
+    </script>
+
+<?php }
+if (isset($err)) { ?>
+    <script>
+        toastr.error('<?php echo $err; ?>')
+    </script>
+<?php }
+if (isset($info)) { ?>
+    <script>
+        toastr.warning('<?php echo $info; ?>')
+    </script>
+<?php }
+?>
