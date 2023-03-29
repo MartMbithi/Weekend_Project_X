@@ -15,12 +15,11 @@ require_once('../partials/head.php');
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center Slight">
-                <a href="#" class="h1"><b>Property</b> Manager</a>
+                <span class="h1"><b>Property</b> Manager</span>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
-
-                <form method="post">
+                <form method="post" autocomplete="off">
                     <div class="input-group mb-3">
                         <input type="text" required class="form-control" name="user_login_name" placeholder="Login username">
                         <div class="input-group-append">
@@ -42,7 +41,7 @@ require_once('../partials/head.php');
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" name="login" class="btn btn-primary btn-block">Sign In</button>
+                            <button type="submit" name="Login" class="btn btn-primary btn-block">Sign In</button>
                         </div>
                         <!-- /.col -->
                     </div>

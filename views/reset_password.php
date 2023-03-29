@@ -15,7 +15,7 @@ require_once('../partials/head.php');
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="#" class="h1"><b>Property</b> Manager</a>
+                <span class="h1"><b>Property</b> Manager</span>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Enter your username - to reset password</p>

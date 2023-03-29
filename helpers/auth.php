@@ -18,7 +18,7 @@ if (isset($_POST['Login'])) {
         $_SESSION['user_id'] = $row['user_id'];
         $_SESSION['user_access_level'] = $row['user_access_level'];
 
-        /* Auth Adminss */
+        /* Auth Admins */
         if ($_SESSION['user_access_level'] == '0') {
             $_SESSION['success'] = 'Logged in successfully as Admin';
             header('Location: dashboard');
@@ -28,10 +28,10 @@ if (isset($_POST['Login'])) {
             header('Location: dashboard');
             exit;
         } else {
-            $_SESSION['err'] = 'Invalid login details';
-            header('Location: login');
-            exit;
+            $info = "Something went wrong, please try again";
         }
+    } else {
+        $err = "Incorrect login credentials";
     }
 }
 
@@ -46,6 +46,7 @@ if (isset($_POST['Reset_Password_Step_1'])) {
     if (mysqli_num_rows($res) > 0) {
         /* Redirect to login password */
         $_SESSION['user_login_name'] = $user_login_name;
+        $_SESSION['success'] = 'Please confirm your new password';
         header('Location: confirm_password');
         exit;
     } else {

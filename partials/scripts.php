@@ -33,7 +33,6 @@
 <!-- Toastr -->
 <script src="<?php echo $base_dir; ?>../public/plugins/toastr/toastr.min.js"></script>
 <!-- Load alerts -->
-<!-- Init  Alerts -->
 <?php if (isset($success)) { ?>
     <!-- Pop Success Alert -->
     <script>
@@ -52,3 +51,12 @@ if (isset($info)) { ?>
     </script>
 <?php }
 ?>
+<script>
+    /* Custom Scripts */
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+
+    /* Initiate data tables */
+
+</script>
