@@ -16,22 +16,14 @@ require_once('../partials/head.php');
                 <a href="#" class="h1"><b>Property</b> Manager</a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Enter your username - to reset password</p>
 
                 <form method="post">
                     <div class="input-group mb-3">
                         <input type="email" required class="form-control" name="user_login_name" placeholder="Email">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="password" required class="form-control" name="user_password" placeholder="Password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
+                                <span class="fas fa-user-tag"></span>
                             </div>
                         </div>
                     </div>
@@ -40,7 +32,7 @@ require_once('../partials/head.php');
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" name="login" class="btn btn-primary btn-block">Sign In</button>
+                            <button type="submit" name="login" class="btn btn-primary btn-block">Reset Password</button>
                         </div>
                         <!-- /.col -->
                     </div>
