@@ -160,6 +160,9 @@ require_once('../partials/head.php');
                                 <div class="card-header">
                                     <h5 class="card-title">House Occupancy</h5>
                                 </div>
+                                <div class="card-body">
+                                    <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                                </div>
                             </div>
                         </div><!-- /.container-fluid -->
                         <div class="col-12 col-sm-6 col-md-6">
@@ -167,26 +170,23 @@ require_once('../partials/head.php');
                                 <div class="card-header">
                                     <h5 class="card-title">Payments Vs Expenses</h5>
                                 </div>
+                                <div class="card-body">
+                                    <canvas id="" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                                </div>
                             </div>
                         </div><!-- /.container-fluid -->
                     </div>
                     <!-- /.content -->
                 </div>
                 <!-- /.content-wrapper -->
-
-                <!-- Control Sidebar -->
-                <aside class="control-sidebar control-sidebar-dark">
-                    <!-- Control sidebar content goes here -->
-                </aside>
-                <!-- /.control-sidebar -->
-
                 <!-- Main Footer -->
                 <?php require_once('../partials/footer.php'); ?>
             </div>
             <!-- ./wrapper -->
-
-            <!-- Scripts -->
-            <?php require_once('../partials/scripts.php'); ?>
+        </div>
+        <!-- Scripts -->
+        <?php require_once('../partials/scripts.php'); ?>
+    </div>
 </body>
 
 </html>
