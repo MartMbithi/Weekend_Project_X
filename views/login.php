@@ -6,6 +6,7 @@
  */
 session_start();
 require_once('../config/config.php');
+require_once('../helpers/auth.php');
 require_once('../partials/head.php');
 ?>
 
@@ -13,7 +14,7 @@ require_once('../partials/head.php');
     <div class="login-box">
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
-            <div class="card-header text-center">
+            <div class="card-header text-center Slight">
                 <a href="#" class="h1"><b>Property</b> Manager</a>
             </div>
             <div class="card-body">
@@ -24,7 +25,7 @@ require_once('../partials/head.php');
                         <input type="text" required class="form-control" name="user_login_name" placeholder="Login username">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                                <span class="fas fa-user-tag"></span>
                             </div>
                         </div>
                     </div>
