@@ -43,7 +43,7 @@ require_once('../partials/head.php');
                     <div class="row">
                         <div class="col-12 col-sm-6 col-md-3">
                             <div class="info-box">
-                                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-hotel"></i></span>
+                                <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-hotel"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Properties</span>
                                     <span class="info-box-number">
@@ -57,7 +57,7 @@ require_once('../partials/head.php');
 
                         <div class="col-12 col-sm-6 col-md-3">
                             <div class="info-box">
-                                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-home"></i></span>
+                                <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-home"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Houses</span>
                                     <span class="info-box-number">
@@ -71,7 +71,7 @@ require_once('../partials/head.php');
 
                         <div class="col-12 col-sm-6 col-md-3">
                             <div class="info-box">
-                                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
+                                <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-users"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Tenants</span>
                                     <span class="info-box-number">
@@ -85,7 +85,7 @@ require_once('../partials/head.php');
 
                         <div class="col-12 col-sm-6 col-md-3">
                             <div class="info-box">
-                                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user-tie"></i></span>
+                                <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-user-tie"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">System Users</span>
                                     <span class="info-box-number">
@@ -99,7 +99,7 @@ require_once('../partials/head.php');
 
                         <div class="col-12 col-sm-6 col-md-3">
                             <div class="info-box">
-                                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-list"></i></span>
+                                <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-list"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Vacant Houses</span>
                                     <span class="info-box-number">
@@ -113,7 +113,7 @@ require_once('../partials/head.php');
 
                         <div class="col-12 col-sm-6 col-md-3">
                             <div class="info-box">
-                                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-check"></i></span>
+                                <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-check"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Occupied Houses</span>
                                     <span class="info-box-number">
@@ -127,7 +127,7 @@ require_once('../partials/head.php');
 
                         <div class="col-12 col-sm-6 col-md-3">
                             <div class="info-box">
-                                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-hand-holding-usd"></i></span>
+                                <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-hand-holding-usd"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Cumulative Payments</span>
                                     <span class="info-box-number">
@@ -141,7 +141,7 @@ require_once('../partials/head.php');
 
                         <div class="col-12 col-sm-6 col-md-3">
                             <div class="info-box">
-                                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-funnel-dollar"></i></span>
+                                <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-funnel-dollar"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Cumulative Expenses</span>
                                     <span class="info-box-number">
@@ -155,15 +155,17 @@ require_once('../partials/head.php');
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-12 col-sm-6 col-md-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title">Monthly Recap Report</h5>
-                                    <div class="card-tools">
-                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
+                                    <h5 class="card-title">House Occupancy</h5>
+                                </div>
+                            </div>
+                        </div><!-- /.container-fluid -->
+                        <div class="col-12 col-sm-6 col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">Payments Vs Expenses</h5>
                                 </div>
                             </div>
                         </div><!-- /.container-fluid -->
