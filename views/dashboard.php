@@ -171,7 +171,7 @@ require_once('../partials/head.php');
                                     <h5 class="card-title">Payments Vs Expenses</h5>
                                 </div>
                                 <div class="card-body">
-                                    <canvas id="" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                                    <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                                 </div>
                             </div>
                         </div><!-- /.container-fluid -->
