@@ -1,7 +1,10 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.2.0
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+        Property Manager - An automated rental property management system
     </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; <?php echo date('Y'); ?>
+        A <a href="https://adminlte.io">Devlan Solutions LTD</a> production</strong>
+    All rights reserved.
 </footer>

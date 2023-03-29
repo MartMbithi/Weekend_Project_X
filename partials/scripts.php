@@ -58,5 +58,5 @@ if (isset($info)) { ?>
     }
 
     /* Initiate data tables */
-
 </script>
+<?php require_once('../modals/logout.php'); ?>
