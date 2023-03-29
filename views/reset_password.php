@@ -20,7 +20,7 @@ require_once('../partials/head.php');
 
                 <form method="post">
                     <div class="input-group mb-3">
-                        <input type="email" required class="form-control" name="user_login_name" placeholder="Email">
+                        <input type="text" required class="form-control" name="user_login_name" placeholder="Login username">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user-tag"></span>
@@ -28,18 +28,17 @@ require_once('../partials/head.php');
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-6">
                         </div>
                         <!-- /.col -->
-                        <div class="col-4">
-                            <button type="submit" name="login" class="btn btn-primary btn-block">Reset Password</button>
+                        <div class="col-6">
+                            <button type="submit" name="Reset_Password_Step_1" class="btn btn-primary btn-block">Reset Password</button>
                         </div>
                         <!-- /.col -->
                     </div>
                 </form>
-
                 <p class="mb-1">
-                    <a href="forgot-password.html">I forgot my password</a>
+                    <a href="../">I remember my password</a>
                 </p>
             </div>
             <!-- /.card-body -->
