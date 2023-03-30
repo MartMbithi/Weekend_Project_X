@@ -278,7 +278,11 @@ require_once('../partials/head.php');
             <!-- ./wrapper -->
         </div>
         <!-- Scripts -->
-        <?php require_once('../partials/scripts.php'); ?>
+        <?php
+        require_once('../partials/scripts.php');
+        require_once('../partials/charts.php');
+        ?>
+
     </div>
 </body>
 
