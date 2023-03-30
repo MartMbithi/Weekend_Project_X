@@ -47,8 +47,6 @@ if (isset($_POST['Delete_Property'])) {
     }
 }
 
-
-
  /* Add house */
 
 /* Update house */

@@ -118,7 +118,7 @@ require_once('../partials/head.php');
                                                     </tr>
                                             <?php
                                                     $cnt = $cnt + 1;
-                                                    include('../partials/modals/property_update.php');
+                                                    include('../modals/property.php');
                                                 }
                                             } ?>
                                         </tbody>
