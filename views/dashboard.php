@@ -184,7 +184,41 @@ require_once('../partials/head.php');
                                     <h5 class="card-title">Recent rent payments</h5>
                                 </div>
                                 <div class="card-body">
-
+                                    <table class="table data_table">
+                                        <thead>
+                                            <tr>
+                                                <th>Ref Code</th>
+                                                <th>Inv Number</th>
+                                                <th>Amount</th>
+                                                <th>Paid By</th>
+                                                <th>Paid On</th>
+                                                <th>House Number</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $payments_sql = mysqli_query(
+                                                $mysqli,
+                                                "SELECT * FROM payments p
+                                                INNER JOIN tenants t ON t.tenant_id = p.payment_tenant_id
+                                                INNER JOIN houses h ON h.house_id = t.tenant_house_id
+                                                ORDER BY payment_id DESC LIMIT 10"
+                                            );
+                                            if (mysqli_num_rows($payments_sql) > 0) {
+                                                while ($payments = mysqli_fetch_array($payments_sql)) {
+                                            ?>
+                                                    <tr>
+                                                        <td><?php echo $payments['payment_ref_code']; ?></td>
+                                                        <td><?php echo $payments['payment_invoice_number']; ?></td>
+                                                        <td>Ksh <?php echo number_format($payments['payment_amount'], 2); ?></td>
+                                                        <td><?php echo $payments['tenant_name']; ?></td>
+                                                        <td><?php echo date('d M Y g:ia', strtotime($payments['payment_date'])); ?></td>
+                                                        <td><?php echo $payments['house_number']; ?></td>
+                                                    </tr>
+                                            <?php }
+                                            } ?>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div><!-- /.container-fluid -->
