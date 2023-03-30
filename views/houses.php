@@ -101,7 +101,6 @@ require_once('../partials/head.php');
                                             <button type="submit" name="Add_House" class="btn btn-outline-success">Add</button>
                                         </div>
                                     </form>
-
                                 </div>
                             </div>
                         </div>

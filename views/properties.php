@@ -75,7 +75,6 @@ require_once('../partials/head.php');
                                             <button type="submit" name="Add_Property" class="btn btn-outline-success">Add</button>
                                         </div>
                                     </form>
-
                                 </div>
                             </div>
                         </div>
