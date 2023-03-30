@@ -202,7 +202,7 @@ require_once('../partials/head.php');
                                                 "SELECT * FROM payments p
                                                 INNER JOIN tenants t ON t.tenant_id = p.payment_tenant_id
                                                 INNER JOIN houses h ON h.house_id = t.tenant_house_id
-                                                ORDER BY payment_id DESC LIMIT 10"
+                                                ORDER BY payment_id ASC"
                                             );
                                             if (mysqli_num_rows($payments_sql) > 0) {
                                                 while ($payments = mysqli_fetch_array($payments_sql)) {
@@ -228,7 +228,36 @@ require_once('../partials/head.php');
                                     <h5 class="card-title">Recent expenses</h5>
                                 </div>
                                 <div class="card-body">
-
+                                    <table class="table data_table">
+                                        <thead>
+                                            <tr>
+                                                <th>Amount</th>
+                                                <th>Posted By</th>
+                                                <th>Type</th>
+                                                <th>Date Posted</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $expenses_sql = mysqli_query(
+                                                $mysqli,
+                                                "SELECT * FROM expenses e
+                                                INNER JOIN users u ON u.user_id = e.expense_user_id
+                                                ORDER BY expense_id ASC"
+                                            );
+                                            if (mysqli_num_rows($expenses_sql) > 0) {
+                                                while ($expenses = mysqli_fetch_array($expenses_sql)) {
+                                            ?>
+                                                    <tr>
+                                                        <td>Ksh <?php echo number_format($expenses['expense_amount'], 2); ?></td>
+                                                        <td><?php echo $expenses['user_names']; ?></td>
+                                                        <td><?php echo $expenses['expense_type']; ?></td>
+                                                        <td><?php echo date('d M Y g:ia', strtotime($expenses['expense_date'])); ?></td>
+                                                    </tr>
+                                            <?php }
+                                            } ?>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div><!-- /.container-fluid -->
