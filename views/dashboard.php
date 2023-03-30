@@ -184,7 +184,7 @@ require_once('../partials/head.php');
                                     <h5 class="card-title">Recent rent payments</h5>
                                 </div>
                                 <div class="card-body">
-                                    <table class="table data_table">
+                                    <table class="table data_table table-striped">
                                         <thead>
                                             <tr>
                                                 <th>Ref Code</th>
@@ -228,7 +228,7 @@ require_once('../partials/head.php');
                                     <h5 class="card-title">Recent expenses</h5>
                                 </div>
                                 <div class="card-body">
-                                    <table class="table data_table">
+                                    <table class="table data_table table-striped">
                                         <thead>
                                             <tr>
                                                 <th>Amount</th>

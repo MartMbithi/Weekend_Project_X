@@ -21,12 +21,11 @@
 <script src="<?php echo $base_dir; ?>../public/js/adminlte.js"></script>
 <!-- Toastr -->
 <script src="<?php echo $base_dir; ?>../public/plugins/toastr/toastr.min.js"></script>
-<!-- Data tables -->
-<script src="<?php echo $base_dir; ?>../public/plugins/datatables/datatables.min.js"></script>
-<script src="<?php echo $base_dir; ?>../public/plugins/datatables/dataTables.dateTime.min.js"></script>
-<script src="<?php echo $base_dir; ?>../public/plugins/datatables/jquery.dataTables.js"></script>
-<script src="<?php echo $base_dir; ?>../public/plugins/datatables/responsive.bootstrap4.min.js"></script>
-<script src="<?php echo $base_dir; ?>../public/plugins/datatables/searchBuilder.bootstrap4.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="<?php echo $base_dir; ?>../public/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?php echo $base_dir; ?>../public/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?php echo $base_dir; ?>../public/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?php echo $base_dir; ?>../public/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
 <!-- Load alerts -->
 <?php if (isset($success)) { ?>
@@ -47,3 +46,15 @@ if (isset($info)) { ?>
     </script>
 <?php }
 require_once('../modals/logout.php'); ?>
+<script>
+    /* Prevent double submissions */
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+    /* Init Data tables */
+    $('.data_table').DataTable({
+        "responsive": true,
+        "autoWidth": false,
+        
+    });
+</script>
