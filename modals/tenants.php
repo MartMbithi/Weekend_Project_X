@@ -74,7 +74,36 @@
                 </button>
             </div>
             <div class="modal-body">
-
+                <form class="needs-validation" method="post" enctype="multipart/form-data" role="form">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="">Select New House</label>
+                            <input type="hidden" value="<?php echo $tenants['tenant_id']; ?>" required name="tenant_id" class="form-control">
+                            <input type="hidden" value="<?php echo $tenants['tenant_house_id']; ?>" required name="tenant_old_house_id" class="form-control">
+                            <div class="form-group col-md-12">
+                                <select type="text" required name="tenant_house_id" class="form-control">
+                                    <option value="">Select house details</option>
+                                    <?php
+                                    $property_sql = mysqli_query(
+                                        $mysqli,
+                                        "SELECT * FROM properties p
+                                        INNER JOIN houses h ON p.property_id = h.house_property_id
+                                        WHERE h.house_status = 'Vacant'"
+                                    );
+                                    if (mysqli_num_rows($property_sql) > 0) {
+                                        while ($houses = mysqli_fetch_array($property_sql)) {
+                                    ?>
+                                            <option value="<?php echo $houses['house_id']; ?>">Property name: <?php echo $houses['property_name'] . ' - House number:' . $houses['house_number']; ?></option>
+                                    <?php }
+                                    } ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" name="Update_House" class="btn btn-outline-success">Update</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
