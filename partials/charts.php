@@ -15,7 +15,7 @@
                 'Occupied',
             ],
             datasets: [{
-                data: [700, 500],
+                data: [<?php echo $occupied; ?>, <?php echo $vacant; ?>],
                 backgroundColor: ['#f56954', '#00a65a'],
             }]
         }
@@ -38,7 +38,7 @@
                 'Revenue',
             ],
             datasets: [{
-                data: [7000, 500],
+                data: [<?php echo $expense_amount; ?>, <?php echo $payment_amount; ?>],
                 backgroundColor: ['#00c0ef', '#3c8dbc'],
             }]
         }
