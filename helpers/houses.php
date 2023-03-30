@@ -52,16 +52,15 @@ if (isset($_POST['Add_House'])) {
     $house_property_id = mysqli_real_escape_string($mysqli, $_POST['house_property_id']);
     $house_number = mysqli_real_escape_string($mysqli, $_POST['house_number']);
     $house_category = mysqli_real_escape_string($mysqli, $_POST['house_category']);
-    $house_status = mysqli_real_escape_string($mysqli, $_POST['house_status']);
     $house_rent = mysqli_real_escape_string($mysqli, $_POST['house_rent']);
 
     /* Prevent double entries */
     if (mysqli_num_rows(mysqli_query($mysqli, "SELECT * FROM houses WHERE house_number = '{$house_number}'")) > 0) {
-        $error = "House number already exists";
+        $err = "House number already exists";
     } else {
         /* Persist */
-        $add_sql = "INSERT INTO houses (house_property_id, house_number, house_category, house_status, house_rent) 
-        VALUES ('{$house_property_id}', '{$house_number}', '{$house_category}', '{$house_status}', '{$house_rent}')";
+        $add_sql = "INSERT INTO houses (house_property_id, house_number, house_category, house_rent) 
+        VALUES ('{$house_property_id}', '{$house_number}', '{$house_category}', '{$house_rent}')";
         if (mysqli_query($mysqli, $add_sql)) {
             $success = "House added";
         } else {
