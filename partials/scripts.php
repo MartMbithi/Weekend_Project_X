@@ -55,6 +55,15 @@ require_once('../modals/logout.php'); ?>
     $('.data_table').DataTable({
         "responsive": true,
         "autoWidth": false,
-        
+
+    });
+
+    /* Set active class */
+    $(document).ready(function() {
+        var url = window.location;
+        $('li.nav-item a[href="' + url + '"]').parent().addClass('active');
+        $('li.nav-item a').filter(function() {
+            return this.href == url;
+        }).parent().addClass('active');
     });
 </script>
