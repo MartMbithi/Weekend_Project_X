@@ -43,10 +43,7 @@ if (isset($info)) { ?>
 <!-- Load Charts -->
 <script>
     $(function() {
-        //-------------
-        //- DONUT CHART -
-        //-------------
-        // Get context with jQuery - using jQuery's .get() method.
+        /* House  */
         var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
         var donutData = {
             labels: [
@@ -62,18 +59,14 @@ if (isset($info)) { ?>
             maintainAspectRatio: false,
             responsive: true,
         }
-        //Create pie or douhnut chart
-        // You can switch between pie and douhnut using the method below.
+
         new Chart(donutChartCanvas, {
             type: 'doughnut',
             data: donutData,
             options: donutOptions
         })
 
-        //-------------
-        //- PIE CHART -
-        //-------------
-        // Get context with jQuery - using jQuery's .get() method.
+        /* Expenses Vs Revenue */
         var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
         var pieData = {
             labels: [
@@ -89,8 +82,6 @@ if (isset($info)) { ?>
             maintainAspectRatio: false,
             responsive: true,
         }
-        //Create pie or douhnut chart
-        // You can switch between pie and douhnut using the method below.
         new Chart(pieChartCanvas, {
             type: 'pie',
             data: pieData,

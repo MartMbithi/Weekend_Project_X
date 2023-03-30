@@ -156,7 +156,7 @@ require_once('../partials/head.php');
 
                     <div class="row">
                         <div class="col-12 col-sm-6 col-md-6">
-                            <div class="card">
+                            <div class="card card-outline card-success">
                                 <div class="card-header">
                                     <h5 class="card-title">House Occupancy</h5>
                                 </div>
@@ -166,7 +166,7 @@ require_once('../partials/head.php');
                             </div>
                         </div><!-- /.container-fluid -->
                         <div class="col-12 col-sm-6 col-md-6">
-                            <div class="card">
+                            <div class="card card-outline card-success">
                                 <div class="card-header">
                                     <h5 class="card-title">Payments Vs Expenses</h5>
                                 </div>
@@ -180,7 +180,14 @@ require_once('../partials/head.php');
                 </div>
                 <!-- /.content-wrapper -->
                 <!-- Main Footer -->
-                <?php require_once('../partials/footer.php'); ?>
+                <?php
+                $i = 0;
+                while ($i <= 4) {
+                    echo "<br>";
+                    $i++;
+                }
+                require_once('../partials/footer.php');
+                ?>
             </div>
             <!-- ./wrapper -->
         </div>
