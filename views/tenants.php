@@ -64,18 +64,19 @@ require_once('../partials/head.php');
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <label for="">House details</label>
-                                                <select type="text" required name="property_name" class="form-control">
+                                                <select type="text" required name="tenant_house_id" class="form-control">
                                                     <option value="">Select house details</option>
                                                     <?php
                                                     $property_sql = mysqli_query(
                                                         $mysqli,
                                                         "SELECT * FROM properties p
-                                                        INNER JOIN houses h ON p.property_id = h.house_property_id"
+                                                        INNER JOIN houses h ON p.property_id = h.house_property_id
+                                                        WHERE h.house_status = 'Vacant'"
                                                     );
                                                     if (mysqli_num_rows($property_sql) > 0) {
                                                         while ($houses = mysqli_fetch_array($property_sql)) {
                                                     ?>
-                                                            <option>Property name: <?php echo $houses['property_name'] . ' - House number:' . $houses['house_number']; ?></option>
+                                                            <option value="<?php echo $houses['house_id']; ?>">Property name: <?php echo $houses['property_name'] . ' - House number:' . $houses['house_number']; ?></option>
                                                     <?php }
                                                     } ?>
                                                 </select>
