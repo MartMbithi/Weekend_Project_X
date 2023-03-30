@@ -6,7 +6,7 @@
 
 session_start();
 require_once('../config/config.php');
-require_once('../helpers/analytics.php');
+require_once('../helpers/houses.php');
 require_once('../partials/head.php');
 ?>
 
@@ -47,6 +47,40 @@ require_once('../partials/head.php');
                         </button>
                     </div>
                     <hr>
+                    <!-- Add Modal -->
+                    <div class="modal fade fixed-right" id="add_modal" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered  modal-xl" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header align-items-center">
+                                    <div class="text-center">
+                                        <h6 class="mb-0 text-bold">Register new property</h6>
+                                    </div>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="needs-validation" method="post" enctype="multipart/form-data" role="form">
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="">Property name</label>
+                                                <input type="text" required name="property_name" class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="">Property location</label>
+                                                <input type="text" required name="property_location" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                            <button type="submit" name="Add_Property" class="btn btn-outline-success">Add</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Modal -->
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-12">
                             <div class="card card-outline card-success">
