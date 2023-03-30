@@ -93,32 +93,41 @@ require_once('../partials/head.php');
                                             <tr>
                                                 <th>S/no</th>
                                                 <th>Property Name</th>
-                                                <th>Property Location</th>
+                                                <th>House Number</th>
+                                                <th>House Type</th>
+                                                <th>House Category</th>
+                                                <th>House Status</th>
+                                                <th>House Rent</th>
                                                 <th>Manage</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $property_sql = mysqli_query(
+                                            $house_sql = mysqli_query(
                                                 $mysqli,
                                                 "SELECT * FROM properties "
                                             );
-                                            if (mysqli_num_rows($property_sql) > 0) {
+                                            if (mysqli_num_rows($house_sql) > 0) {
                                                 $cnt = 1;
-                                                while ($properties = mysqli_fetch_array($property_sql)) {
+                                                while ($houses = mysqli_fetch_array($house_sql)) {
                                             ?>
                                                     <tr>
                                                         <td><?php echo $cnt; ?></td>
-                                                        <td><?php echo $properties['property_name']; ?></td>
-                                                        <td><?php echo $properties['property_location']; ?></td>
+                                                        <td><?php echo $houses['property_name']; ?></td>
+                                                        <td><?php echo $houses['house_number']; ?></td>
+                                                        <td><?php echo $houses['house_type']; ?></td>
+                                                        <td><?php echo $houses['house_category']; ?></td>
+                                                        <td><?php echo $houses['house_status']; ?></td>
+                                                        <td><?php echo number_format($houses['house_rent'], 2); ?></td>
+
                                                         <td>
-                                                            <a data-toggle="modal" href="#update_<?php echo $properties['property_id']; ?>" class="badge badge-primary"><i class="fas fa-edit"></i> Edit</a>
-                                                            <a data-toggle="modal" href="#delete_<?php echo $properties['property_id']; ?>" class="badge badge-danger"><i class="fas fa-trash"></i> Delete</a>
+                                                            <a data-toggle="modal" href="#update_<?php echo $houses['house_id']; ?>" class="badge badge-primary"><i class="fas fa-edit"></i> Edit</a>
+                                                            <a data-toggle="modal" href="#delete_<?php echo $houses['house_id']; ?>" class="badge badge-danger"><i class="fas fa-trash"></i> Delete</a>
                                                         </td>
                                                     </tr>
                                             <?php
                                                     $cnt = $cnt + 1;
-                                                    include('../modals/property.php');
+                                                    include('../modals/house.php');
                                                 }
                                             } ?>
                                         </tbody>
