@@ -21,6 +21,13 @@
 <script src="<?php echo $base_dir; ?>../public/js/adminlte.js"></script>
 <!-- Toastr -->
 <script src="<?php echo $base_dir; ?>../public/plugins/toastr/toastr.min.js"></script>
+<!-- Data tables -->
+<script src="<?php echo $base_dir; ?>../public/plugins/datatables/datatables.min.js"></script>
+<script src="<?php echo $base_dir; ?>../public/plugins/datatables/dataTables.dateTime.min.js"></script>
+<script src="<?php echo $base_dir; ?>../public/plugins/datatables/jquery.dataTables.js"></script>
+<script src="<?php echo $base_dir; ?>../public/plugins/datatables/responsive.bootstrap4.min.js"></script>
+<script src="<?php echo $base_dir; ?>../public/plugins/datatables/searchBuilder.bootstrap4.js"></script>
+
 <!-- Load alerts -->
 <?php if (isset($success)) { ?>
     <!-- Pop Success Alert -->

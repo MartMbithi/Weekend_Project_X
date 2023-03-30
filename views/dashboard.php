@@ -42,7 +42,7 @@ require_once('../partials/head.php');
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box">
+                            <div class="info-box card-outline card-success">
                                 <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-hotel"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Properties</span>
@@ -56,7 +56,7 @@ require_once('../partials/head.php');
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box">
+                            <div class="info-box card-outline card-success">
                                 <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-home"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Houses</span>
@@ -70,7 +70,7 @@ require_once('../partials/head.php');
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box">
+                            <div class="info-box card-outline card-success">
                                 <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-users"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Tenants</span>
@@ -84,7 +84,7 @@ require_once('../partials/head.php');
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box">
+                            <div class="info-box card-outline card-success">
                                 <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-user-tie"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">System Users</span>
@@ -98,7 +98,7 @@ require_once('../partials/head.php');
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box">
+                            <div class="info-box card-outline card-success">
                                 <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-list"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Vacant Houses</span>
@@ -112,7 +112,7 @@ require_once('../partials/head.php');
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box">
+                            <div class="info-box card-outline card-success">
                                 <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-check"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Occupied Houses</span>
@@ -126,7 +126,7 @@ require_once('../partials/head.php');
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box">
+                            <div class="info-box card-outline card-success">
                                 <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-hand-holding-usd"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Cumulative Payments</span>
@@ -140,7 +140,7 @@ require_once('../partials/head.php');
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box">
+                            <div class="info-box card-outline card-success">
                                 <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-funnel-dollar"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">Cumulative Expenses</span>
@@ -177,8 +177,31 @@ require_once('../partials/head.php');
                         </div><!-- /.container-fluid -->
                     </div>
                     <!-- /.content -->
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12">
+                            <div class="card card-outline card-success">
+                                <div class="card-header">
+                                    <h5 class="card-title">Recent rent payments</h5>
+                                </div>
+                                <div class="card-body">
+
+                                </div>
+                            </div>
+                        </div><!-- /.container-fluid -->
+                        <div class="col-12 col-sm-12 col-md-12">
+                            <div class="card card-outline card-success">
+                                <div class="card-header">
+                                    <h5 class="card-title">Recent expenses</h5>
+                                </div>
+                                <div class="card-body">
+
+                                </div>
+                            </div>
+                        </div><!-- /.container-fluid -->
+                    </div>
                 </div>
                 <!-- /.content-wrapper -->
+
                 <!-- Main Footer -->
                 <?php
                 $i = 0;

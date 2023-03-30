@@ -29,6 +29,13 @@
     <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/summernote/summernote-bs4.min.css">
     <!-- Toastr -->
     <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/toastr/toastr.min.css">
+    <!-- Data tables -->
+    <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/datatables/datatables.min.js">
+    <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/datatables/dataTables.dateTime.min.js">
+    <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/datatables/jquery.dataTables.js">
+    <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/datatables/jquery.dataTables.min.js">
+    <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/datatables/responsive.bootstrap4.min.js">
+    <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/datatables/searchBuilder.bootstrap4.js">
     <?php
     /* Alert Sesion Via Alerts */
     if (isset($_SESSION['success'])) {
