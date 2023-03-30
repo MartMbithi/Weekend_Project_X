@@ -71,5 +71,31 @@ if (isset($_POST['Add_House'])) {
 }
 
 /* Update house */
+if (isset($_POST['Update_House'])) {
+    $house_property_id = mysqli_real_escape_string($mysqli, $_POST['house_property_id']);
+    $house_number = mysqli_real_escape_string($mysqli, $_POST['house_number']);
+    $house_category = mysqli_real_escape_string($mysqli, $_POST['house_category']);
+    $house_status = mysqli_real_escape_string($mysqli, $_POST['house_status']);
+    $house_rent = mysqli_real_escape_string($mysqli, $_POST['house_rent']);
+    $house_id = mysqli_real_escape_string($mysqli, $_POST['house_id']);
+
+    /* Persist */
+    $update_sql = "UPDATE houses SET house_property_id = '{$house_property_id}', house_number = '{$house_number}', house_category = '{$house_category}', house_status = '{$house_status}', house_rent = '{$house_rent}' WHERE house_id = '{$house_id}'";
+    if (mysqli_query($mysqli, $update_sql)) {
+        $success = "House updated";
+    } else {
+        $error = "Error updating house";
+    }
+}
 
 /* Delete house */
+if (isset($_POST['Delete_House'])) {
+    $house_id = mysqli_real_escape_string($mysqli, $_POST['house_id']);
+    /* Persist */
+    $delete_sql = "DELETE FROM houses WHERE house_id = '{$house_id}'";
+    if (mysqli_query($mysqli, $delete_sql)) {
+        $success = "House deleted";
+    } else {
+        $error = "Error deleting house";
+    }
+}
