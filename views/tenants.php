@@ -118,33 +118,44 @@ require_once('../partials/head.php');
                                         <thead>
                                             <tr>
                                                 <th>S/no</th>
-                                                <th>Property Name</th>
-                                                <th>Property Location</th>
+                                                <th>Names</th>
+                                                <th>ID Number</th>
+                                                <th>Contacts</th>
+                                                <th>House Number</th>
+                                                <th>Category</th>
+                                                <th>Property</th>
                                                 <th>Manage</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $property_sql = mysqli_query(
+                                            $tenants_details_sql = mysqli_query(
                                                 $mysqli,
-                                                "SELECT * FROM properties "
+                                                "SELECT * FROM houses h
+                                                INNER JOIN tenants t ON h.house_id = t.tenant_house_id
+                                                INNER JOIN properties p ON h.house_property_id = p.property_id"
                                             );
-                                            if (mysqli_num_rows($property_sql) > 0) {
+                                            if (mysqli_num_rows($tenants_details_sql) > 0) {
                                                 $cnt = 1;
-                                                while ($properties = mysqli_fetch_array($property_sql)) {
+                                                while ($tenants = mysqli_fetch_array($tenants_details_sql)) {
                                             ?>
                                                     <tr>
                                                         <td><?php echo $cnt; ?></td>
-                                                        <td><?php echo $properties['property_name']; ?></td>
-                                                        <td><?php echo $properties['property_location']; ?></td>
+                                                        <td><?php echo $tenants['tenant_name']; ?></td>
+                                                        <td><?php echo $tenants['tenant_national_id']; ?></td>
+                                                        <td><?php echo $tenants['tenant_mobile_number']; ?></td>
+                                                        <td><?php echo $tenants['house_number']; ?></td>
+                                                        <td><?php echo $tenants['house_category']; ?></td>
+                                                        <td><?php echo $tenants['property_name']; ?></td>
                                                         <td>
-                                                            <a data-toggle="modal" href="#update_<?php echo $properties['property_id']; ?>" class="badge badge-primary"><i class="fas fa-edit"></i> Edit</a>
-                                                            <a data-toggle="modal" href="#delete_<?php echo $properties['property_id']; ?>" class="badge badge-danger"><i class="fas fa-trash"></i> Delete</a>
+                                                            <a data-toggle="modal" href="#update_<?php echo $tenants['tenant_id']; ?>" class="badge badge-primary"><i class="fas fa-edit"></i> Edit</a>
+                                                            <a data-toggle="modal" href="#update_<?php echo $tenants['tenant_id']; ?>" class="badge badge-warning"><i class="fas fa-history"></i> Swap house</a>
+                                                            <a data-toggle="modal" href="#delete_<?php echo $tenants['tenant_id']; ?>" class="badge badge-danger"><i class="fas fa-trash"></i> Delete</a>
                                                         </td>
                                                     </tr>
                                             <?php
                                                     $cnt = $cnt + 1;
-                                                    include('../modals/property.php');
+                                                    include('../modals/tenants.php');
                                                 }
                                             } ?>
                                         </tbody>
