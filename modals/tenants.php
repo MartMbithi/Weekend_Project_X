@@ -52,6 +52,7 @@
                     <br>
                     <!-- Hide This -->
                     <input type="hidden" name="tenant_id" value="<?php echo $tenants['tenant_id']; ?>">
+                    <input type="hidden" name="tenant_house_id" value="<?php echo $tenants['tenant_house_id']; ?>">
                     <button type="button" class="text-center btn btn-success" data-dismiss="modal">No</button>
                     <button type="submit" name="Delete_Tenants" class="text-center btn btn-danger">Yes, Delete</button>
                 </div>

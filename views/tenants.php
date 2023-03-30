@@ -119,11 +119,12 @@ require_once('../partials/head.php');
                                             <tr>
                                                 <th>S/no</th>
                                                 <th>Names</th>
-                                                <th>ID Number</th>
+                                                <th>ID No</th>
                                                 <th>Contacts</th>
-                                                <th>House Number</th>
-                                                <th>Category</th>
                                                 <th>Property</th>
+                                                <th>House No</th>
+                                                <th>Type</th>
+                                                <th>Date registered</th>
                                                 <th>Manage</th>
                                             </tr>
                                         </thead>
@@ -144,9 +145,10 @@ require_once('../partials/head.php');
                                                         <td><?php echo $tenants['tenant_name']; ?></td>
                                                         <td><?php echo $tenants['tenant_national_id']; ?></td>
                                                         <td><?php echo $tenants['tenant_mobile_number']; ?></td>
+                                                        <td><?php echo $tenants['property_name']; ?></td>
                                                         <td><?php echo $tenants['house_number']; ?></td>
                                                         <td><?php echo $tenants['house_category']; ?></td>
-                                                        <td><?php echo $tenants['property_name']; ?></td>
+                                                        <td><?php echo date('d M Y', strtotime($tenants['tenant_date_of_registration'])); ?></td>
                                                         <td>
                                                             <a data-toggle="modal" href="#update_<?php echo $tenants['tenant_id']; ?>" class="badge badge-primary"><i class="fas fa-edit"></i> Edit</a>
                                                             <a data-toggle="modal" href="#swap_<?php echo $tenants['tenant_id']; ?>" class="badge badge-warning"><i class="fas fa-history"></i> Swap house</a>
