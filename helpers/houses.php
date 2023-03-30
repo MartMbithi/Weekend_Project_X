@@ -13,7 +13,7 @@ if (isset($_POST['Add_Property'])) {
     /* Persist */
     $add_sql = "INSERT INTO properties (property_name, property_location) VALUES ('{$property_name}', '{$property_location}')";
     if (mysqli_query($mysqli, $add_sql)) {
-        $success = "Property added successfully";
+        $success = "Property added";
     } else {
         $error = "Error adding property";
     }
@@ -28,7 +28,7 @@ if (isset($_POST['Update_Property'])) {
     /* Persist */
     $update_sql = "UPDATE properties SET property_name = '{$property_name}', property_location = '{$property_location}' WHERE property_id = '{$property_id}'";
     if (mysqli_query($mysqli, $update_sql)) {
-        $success = "Property updated successfully";
+        $success = "Property updated";
     } else {
         $error = "Error updating property";
     }
@@ -41,7 +41,7 @@ if (isset($_POST['Delete_Property'])) {
     /* Persist */
     $delete_sql = "DELETE FROM properties WHERE property_id = '{$property_id}'";
     if (mysqli_query($mysqli, $delete_sql)) {
-        $success = "Property deleted successfully";
+        $success = "Property deleted";
     } else {
         $error = "Error deleting property";
     }

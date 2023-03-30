@@ -19,26 +19,26 @@
                     <a href="properties" class="nav-link">Properties</a>
                 </li>
                 <li class="nav-item">
-                    <a href="properties" class="nav-link">Houses</a>
+                    <a href="houses" class="nav-link">Houses</a>
                 </li>
                 <li class="nav-item">
-                    <a href="properties" class="nav-link">Tenants</a>
+                    <a href="tenants" class="nav-link">Tenants</a>
                 </li>
                 <li class="nav-item">
-                    <a href="properties" class="nav-link">Payments</a>
+                    <a href="payments" class="nav-link">Payments</a>
                 </li>
                 <li class="nav-item">
-                    <a href="properties" class="nav-link">Expenses</a>
+                    <a href="expenses" class="nav-link">Expenses</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
                         Reports
                     </a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                        <li><a href="#" class="dropdown-item">Houses</a></li>
-                        <li><a href="#" class="dropdown-item">Tenants</a></li>
-                        <li><a href="#" class="dropdown-item">Payments</a></li>
-                        <li><a href="#" class="dropdown-item">Expenses summary</a></li>
+                        <li><a href="reports_houses" class="dropdown-item">Houses</a></li>
+                        <li><a href="reports_tenants" class="dropdown-item">Tenants</a></li>
+                        <li><a href="reports_payments" class="dropdown-item">Payments</a></li>
+                        <li><a href="reports_expenses" class="dropdown-item">Expenses summary</a></li>
                     </ul>
                 </li>
             </ul>
