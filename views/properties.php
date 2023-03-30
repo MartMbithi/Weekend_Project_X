@@ -85,7 +85,7 @@ require_once('../partials/head.php');
                         <div class="col-12 col-sm-12 col-md-12">
                             <div class="card card-outline card-success">
                                 <div class="card-header">
-                                    <h5 class="card-title">Recent rent payments</h5>
+                                    <h5 class="card-title">Registered properties</h5>
                                 </div>
                                 <div class="card-body">
                                     <table class="table data_table table-striped">
