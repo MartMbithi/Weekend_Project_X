@@ -79,7 +79,7 @@ require_once('../partials/head.php');
                                                         $cnt = 1;
                                                         while ($tenants = mysqli_fetch_array($tenants_details_sql)) {
                                                     ?>
-                                                            <option>Names: <?php echo $tenants['tenant_name']; ?>, ID Number: <?php echo $tenants['tenant_national_id']; ?></option>
+                                                            <option value="<?php echo $tenants['tenant_id']; ?>">Names: <?php echo $tenants['tenant_name']; ?>, ID Number: <?php echo $tenants['tenant_national_id']; ?></option>
                                                     <?php }
                                                     } ?>
                                                 </select>
@@ -126,11 +126,11 @@ require_once('../partials/head.php');
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="">Date Paid(Ksh)</label>
-                                                <input type="number" required name="payment_amount" class="form-control datepicker">
+                                                <input type="text" required name="payment_date" class="form-control datepicker">
                                             </div>
                                         </div>
                                         <div class="text-right">
-                                            <button type="submit" name="Add_Payments" class="btn btn-outline-success">Add</button>
+                                            <button type="submit" name="Add_Payment" class="btn btn-outline-success">Add</button>
                                         </div>
                                     </form>
                                 </div>
@@ -178,7 +178,7 @@ require_once('../partials/head.php');
                                                         <td><?php echo $payments['payment_invoice_number']; ?></td>
                                                         <td>Ksh <?php echo number_format($payments['payment_amount'], 2); ?></td>
                                                         <td><?php echo $payments['tenant_name']; ?></td>
-                                                        <td><?php echo date('d M Y g:ia', strtotime($payments['payment_date'])); ?></td>
+                                                        <td><?php echo date('d M Y', strtotime($payments['payment_date'])); ?></td>
                                                         <td><?php echo $payments['house_number']; ?></td>
                                                         <td>
                                                             <a data-toggle="modal" href="#update_<?php echo $payments['payment_id']; ?>" class="badge badge-primary"><i class="fas fa-edit"></i> Edit</a>
