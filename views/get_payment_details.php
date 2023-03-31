@@ -9,6 +9,7 @@ require_once('../config/config.php');
 if (isset($_REQUEST['tenants'])) {
     $tenants = mysqli_real_escape_string($mysqli, $_REQUEST['tenants']);
 }
+
 $tenant_details = array();
 
 
@@ -41,4 +42,4 @@ while ($row = mysqli_fetch_array($result)) {
 
 
 // encoding array to json format
-echo json_encode($directories);
+echo json_encode($tenant_details);
