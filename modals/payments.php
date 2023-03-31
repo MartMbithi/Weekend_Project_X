@@ -71,7 +71,7 @@
             <form method="POST">
                 <div class="modal-body text-center text-danger">
                     <img src='../public/img/bin.gif' height="120px">
-                    <h4>Delete <?php echo $payments['payment_id']; ?>?</h4>
+                    <h4>Delete <?php echo $payments['payment_invoice_number']; ?> Payment Record?</h4>
                     <br>
                     <!-- Hide This -->
                     <input type="hidden" name="payment_id" value="<?php echo $payments['payment_id']; ?>">
