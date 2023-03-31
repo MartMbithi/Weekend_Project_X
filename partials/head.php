@@ -36,7 +36,9 @@
     <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
     <!-- daterange picker -->
-    <link rel="stylesheet" href="<?php echo $base_dir; ?>../plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/daterangepicker/daterangepicker.css">
+    <!-- Date picker -->
+    <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/datepicker/css/bootstrap-datepicker.css">
     <?php
     /* Alert Sesion Via Alerts */
     if (isset($_SESSION['success'])) {

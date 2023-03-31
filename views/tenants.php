@@ -68,7 +68,7 @@ require_once('../partials/head.php');
                                                     <option value="">Select house details</option>
                                                     <?php
                                                     $property_sql = mysqli_query(
-                                                        $mysqli, 
+                                                        $mysqli,
                                                         "SELECT * FROM properties p
                                                         INNER JOIN houses h ON p.property_id = h.house_property_id
                                                         WHERE h.house_status = 'Vacant'"
@@ -95,7 +95,7 @@ require_once('../partials/head.php');
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="">Tenant date registered</label>
-                                                <input type="date" required name="tenant_date_of_registration" class="form-control">
+                                                <input type="text" required name="tenant_date_of_registration" class="form-control datepicker">
                                             </div>
                                         </div>
                                         <div class="text-right">

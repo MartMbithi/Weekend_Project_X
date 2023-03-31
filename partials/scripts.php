@@ -10,9 +10,12 @@
 <script src="<?php echo $base_dir; ?>../public/plugins/select2/js/select2.full.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="<?php echo $base_dir; ?>../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- daterangepicker -->
+<!-- moment -->
 <script src="<?php echo $base_dir; ?>../public/plugins/moment/moment.min.js"></script>
+<!-- Date range picker -->
 <script src="<?php echo $base_dir; ?>../public/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Date picker -->
+<script src="<?php echo $base_dir; ?>../public/plugins/datepicker/js/bootstrap-datepicker.min.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="<?php echo $base_dir; ?>../public/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
@@ -73,4 +76,12 @@ require_once('../modals/logout.php'); ?>
     $('.select2bs4').select2({
         theme: 'bootstrap4'
     })
+
+    /* Date picker */
+    $('.date_picker_range').daterangepicker()
+    /* Date picker */
+    $('.datepicker').datepicker({
+        format: 'mm/dd/yyyy',
+        startDate: '-7d'
+    });
 </script>
