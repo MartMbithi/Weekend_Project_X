@@ -76,67 +76,70 @@ require_once('../partials/head.php');
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="col-md-9">
                                     <div class="card card-success card-outline">
-                                        <div class="card-body">
-                                            <div class="row invoice-info">
-                                                <div class="col-sm-12 invoice-col text-right">
-                                                    <b>Invoice # <?php echo $payments['payment_invoice_number']; ?></b><br>
-                                                    <b>Payment # :</b> <?php echo $payments['payment_ref_code']; ?><br>
-                                                    <b>Payment Date:</b> <?php echo date('d M Y', strtotime($payments['payment_date'])); ?><br>
+                                        <div id="Print">
+                                            <div class="card-body">
+                                                <div class="row invoice-info">
+                                                    <div class="col-sm-12 invoice-col text-right">
+                                                        <b>Invoice # <?php echo $payments['payment_invoice_number']; ?></b><br>
+                                                        <b>Payment # :</b> <?php echo $payments['payment_ref_code']; ?><br>
+                                                        <b>Payment Date:</b> <?php echo date('d M Y', strtotime($payments['payment_date'])); ?><br>
+                                                    </div>
+                                                    <!-- /.col -->
                                                 </div>
-                                                <!-- /.col -->
-                                            </div>
-                                            <!-- /.row -->
+                                                <!-- /.row -->
 
-                                            <!-- Table row -->
-                                            <div class="row">
-                                                <div class="col-12 table-responsive">
-                                                    <table class="table table-striped text-right">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Qty</th>
-                                                                <th>Product</th>
-                                                                <th>Description</th>
-                                                                <th>Subtotal</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>House rent</td>
-                                                                <td>Rent payment for house number <?php echo $payments['house_number']; ?></td>
-                                                                <td>Ksh <?php echo number_format($payments['payment_amount'], 2); ?></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <!-- /.col -->
-                                            </div>
-                                            <!-- /.row -->
-
-                                            <div class="row">
-                                                <!-- accepted payments column -->
-                                                <div class="col-6">
-                                                    <p class="lead"></p>
-                                                </div>
-                                                <!-- /.col -->
-                                                <div class="col-6 text-right">
-                                                    <p class="lead">Payment Method: <?php echo $payments['payment_type']; ?></p>
-                                                    <div class="table-responsive">
-                                                        <table class="table">
-                                                            <tr>
-                                                                <th style="width:50%">Subtotal:</th>
-                                                                <td>Ksh <?php echo number_format($payments['payment_amount'], 2); ?></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Total:</th>
-                                                                <td>Ksh <?php echo number_format($payments['payment_amount'], 2); ?></td>
-                                                            </tr>
+                                                <!-- Table row -->
+                                                <div class="row">
+                                                    <div class="col-12 table-responsive">
+                                                        <table class="table table-striped text-right">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Qty</th>
+                                                                    <th>Product</th>
+                                                                    <th>Description</th>
+                                                                    <th>Subtotal</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>House rent</td>
+                                                                    <td>Rent payment for house number <?php echo $payments['house_number']; ?></td>
+                                                                    <td>Ksh <?php echo number_format($payments['payment_amount'], 2); ?></td>
+                                                                </tr>
+                                                            </tbody>
                                                         </table>
                                                     </div>
+                                                    <!-- /.col -->
                                                 </div>
-                                                <!-- /.col -->
+                                                <!-- /.row -->
+
+                                                <div class="row">
+                                                    <!-- accepted payments column -->
+                                                    <div class="col-6">
+                                                        <p class="lead"></p>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                    <div class="col-6 text-right">
+                                                        <p class="lead">Payment Method: <?php echo $payments['payment_type']; ?></p>
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <tr>
+                                                                    <th style="width:50%">Subtotal:</th>
+                                                                    <td>Ksh <?php echo number_format($payments['payment_amount'], 2); ?></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Total:</th>
+                                                                    <td>Ksh <?php echo number_format($payments['payment_amount'], 2); ?></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- /.row -->
@@ -144,9 +147,9 @@ require_once('../partials/head.php');
                                             <!-- this row will not appear when printing -->
                                             <div class="row no-print">
                                                 <div class="col-12">
-                                                    <a href="print_receipt?receipt=<?php echo $payment_id; ?>" class="btn btn-success float-right"><i class="fas fa-print"></i>
+                                                    <button type="button" id="print" onclick="printContent('Print');" class="btn btn-success float-right"><i class="fas fa-print"></i>
                                                         Print
-                                                    </a>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
