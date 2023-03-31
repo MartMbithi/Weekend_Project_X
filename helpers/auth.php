@@ -16,14 +16,14 @@ if (isset($_POST['Login'])) {
     if (mysqli_num_rows($res) > 0) {
         $row = mysqli_fetch_assoc($res);
         $_SESSION['user_id'] = $row['user_id'];
-        $_SESSION['user_access_level'] = $row['user_access_level'];
+        $_SESSION['user_type'] = $row['user_type'];
 
         /* Auth Admins */
-        if ($_SESSION['user_access_level'] == '0') {
+        if ($_SESSION['user_type'] == 'Admin') {
             $_SESSION['success'] = 'Logged in successfully as Admin';
             header('Location: dashboard');
             exit;
-        } else if ($_SESSION['user_access_level'] == '1') {
+        } else if ($_SESSION['user_type'] == 'User') {
             $_SESSION['success'] = 'Logged in successfully as User';
             header('Location: dashboard');
             exit;
