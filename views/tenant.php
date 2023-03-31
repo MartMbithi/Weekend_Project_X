@@ -84,14 +84,14 @@ require_once('../partials/head.php');
                                     <div class="card card-success card-outline">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-5 col-sm-3">
+                                                <div class="col-3 col-sm-3">
                                                     <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
                                                         <a class="nav-link active" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-home" role="tab" aria-controls="vert-tabs-home" aria-selected="true">House Details</a>
                                                         <a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Property Details</a>
                                                         <a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages" aria-selected="false">Payment Logs</a>
                                                     </div>
                                                 </div>
-                                                <div class="col-7 col-sm-9">
+                                                <div class="col-9 col-sm-9">
                                                     <div class="tab-content" id="vert-tabs-tabContent">
                                                         <div class="tab-pane text-left fade show active" id="vert-tabs-home" role="tabpanel" aria-labelledby="vert-tabs-home-tab">
                                                             <div class="card-header">
@@ -128,7 +128,7 @@ require_once('../partials/head.php');
                                                                             <th>Inv Number</th>
                                                                             <th>Amount</th>
                                                                             <th>Paid On</th>
-                                                                            <th>House</th>
+                                                                            <th>House #</th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
