@@ -28,6 +28,9 @@
                     <a href="payments" class="nav-link">Payments</a>
                 </li>
                 <li class="nav-item">
+                    <a href="users" class="nav-link">Users</a>
+                </li>
+                <li class="nav-item">
                     <a href="expenses" class="nav-link">Expenses</a>
                 </li>
                 <li class="nav-item dropdown">
