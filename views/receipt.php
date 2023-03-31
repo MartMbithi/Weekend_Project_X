@@ -144,9 +144,9 @@ require_once('../partials/head.php');
                                             <!-- this row will not appear when printing -->
                                             <div class="row no-print">
                                                 <div class="col-12">
-                                                    <button type="button" class="btn btn-success float-right"><i class="fas fa-print"></i>
+                                                    <a href="print_receipt?receipt=<?php echo $payment_id; ?>" class="btn btn-success float-right"><i class="fas fa-print"></i>
                                                         Print
-                                                    </button>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
