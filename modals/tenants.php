@@ -28,7 +28,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">Tenant date registered</label>
-                            <input type="date" value="<?php echo $tenants['tenant_date_of_registration']; ?>" required name="tenant_date_of_registration" class="form-control">
+                            <input type="text" value="<?php echo $tenants['tenant_date_of_registration']; ?>" required name="tenant_date_of_registration" class="form-control datepicker">
                         </div>
                     </div>
                     <div class="text-right">

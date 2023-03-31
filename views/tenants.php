@@ -121,7 +121,6 @@ require_once('../partials/head.php');
                                                 <th>Names</th>
                                                 <th>ID No</th>
                                                 <th>Contacts</th>
-                                                <th>Property</th>
                                                 <th>House No</th>
                                                 <th>Type</th>
                                                 <th>Date registered</th>
@@ -142,10 +141,13 @@ require_once('../partials/head.php');
                                             ?>
                                                     <tr>
                                                         <td><?php echo $cnt; ?></td>
-                                                        <td><?php echo $tenants['tenant_name']; ?></td>
+                                                        <td>
+                                                            <a href="tenant?view=<?php echo $tenants['tenant_id']; ?>">
+                                                                <?php echo $tenants['tenant_name']; ?>
+                                                            </a>
+                                                        </td>
                                                         <td><?php echo $tenants['tenant_national_id']; ?></td>
                                                         <td><?php echo $tenants['tenant_mobile_number']; ?></td>
-                                                        <td><?php echo $tenants['property_name']; ?></td>
                                                         <td><?php echo $tenants['house_number']; ?></td>
                                                         <td><?php echo $tenants['house_category']; ?></td>
                                                         <td><?php echo date('d M Y', strtotime($tenants['tenant_date_of_registration'])); ?></td>
