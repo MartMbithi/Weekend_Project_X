@@ -66,7 +66,7 @@ require_once('../partials/head.php');
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <label for="">Tenant details</label>
-                                                <select type="text" required name="payment_tenant_id" class="form-control select2bs4">
+                                                <select type="text" required name="payment_tenant_id" class="form-control select2bs4" id="TenantDetails">
                                                     <option>Select tenant</option>
                                                     <?php
                                                     $tenants_details_sql = mysqli_query(
@@ -212,6 +212,53 @@ require_once('../partials/head.php');
         </div>
         <!-- Scripts -->
         <?php require_once('../partials/scripts.php'); ?>
+        <script>
+            $(document).ready(function() {
+
+                /*  Get Directories  */
+                $("#TenantDetails").change(function() {
+                    var tenant_id = $(this).val();
+
+                    $.ajax({
+                        url: 'get_payment_details.php',
+                        type: 'post',
+                        data: {
+                            tenants: tenant_id
+                        },
+                        dataType: 'json',
+                        success: function(response) {
+                            var len = response.length;
+                            $("#IDNumber").empty();
+                            $("#MobileNumber").empty();
+                            $("#HouseNumber").empty();
+                            $("#HouseCategory").empty();
+                            $("#HouseRent").empty();
+                            $("#PropertyName").empty();
+                            $("#PropertyLocation").empty();
+
+                            for (var i = 0; i < len; i++) {
+                                var tenant_national_id = response[i]['tenant_national_id'];
+                                var tenant_mobile_number = response[i]['tenant_mobile_number'];
+                                var house_number = response[i]['house_number'];
+                                var house_category = response[i]['house_category'];
+                                var house_rent = response[i]['house_rent'];
+                                var property_name = response[i]['property_name'];
+                                var property_location = response[i]['property_location'];
+
+                                /* Pre Populate Items */
+                                $("#IDNumber").append(+tenant_national_id);
+                                $("#MobileNumber").append(+tenant_mobile_number);
+                                $("#HouseNumber").append(+house_number);
+                                $("#HouseCategory").append(+house_category);
+                                $("#HouseRent").append(+house_rent);
+                                $("#PropertyName").append(+property_name);
+                                $("#PropertyLocation").append(+property_location);
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
 
     </div>
 </body>

@@ -84,4 +84,25 @@ require_once('../modals/logout.php'); ?>
         format: 'mm/dd/yyyy',
         startDate: '-7d'
     });
+
+    function GetHouseDetails(val) {
+        $.ajax({
+            //get account rates
+            type: "POST",
+            url: "ajax.php",
+            data: 'TenantDetails=' + val,
+            success: function(data) {
+                //alert(data);
+                $('#AccountRates').val(data);
+                $('#AccountRates').val(data);
+                $('#AccountRates').val(data);
+                $('#AccountRates').val(data);
+                $('#AccountRates').val(data);
+                $('#AccountRates').val(data);
+                $('#AccountRates').val(data);
+                $('#AccountRates').val(data);
+            }
+        });
+
+    }
 </script>
