@@ -229,7 +229,7 @@ require_once('../partials/head.php');
                         success: function(response) {
                             var len = response.length;
                             $("#IDNumber").empty();
-                            $("#MobileNumber").empty();
+                            $("#TenantContacts").empty();
                             $("#HouseNumber").empty();
                             $("#HouseCategory").empty();
                             $("#HouseRent").empty();
@@ -246,13 +246,13 @@ require_once('../partials/head.php');
                                 var property_location = response[i]['property_location'];
 
                                 /* Pre Populate Items */
-                                $("#IDNumber").append(+tenant_national_id);
-                                $("#MobileNumber").append(+tenant_mobile_number);
-                                $("#HouseNumber").append(+house_number);
-                                $("#HouseCategory").append(+house_category);
-                                $("#HouseRent").append(+house_rent);
-                                $("#PropertyName").append(+property_name);
-                                $("#PropertyLocation").append(+property_location);
+                                $("#IDNumber").append("<span>" + tenant_national_id + "</span>");
+                                $("#TenantContacts").append("<span>" + tenant_mobile_number + "</span>");
+                                $("#HouseNumber").append("<span>" + house_number + "</span>");
+                                $("#HouseCategory").append("<span>" + house_category + "</span>");
+                                $("#HouseRent").append("<span>" + house_rent + "</span>");
+                                $("#PropertyName").append("<span>" + property_name + "</span>");
+                                $("#PropertyLocation").append("<span>" + property_location + "</span>");
                             }
                         }
                     });
