@@ -19,7 +19,7 @@ if (isset($_POST['Login'])) {
         $_SESSION['user_type'] = $row['user_type'];
 
         /* Auth Admins */
-        if ($_SESSION['user_type'] == 'Admin') {
+        if ($_SESSION['user_type'] == 'Administrator') {
             $_SESSION['success'] = 'Logged in successfully as Admin';
             header('Location: dashboard');
             exit;
