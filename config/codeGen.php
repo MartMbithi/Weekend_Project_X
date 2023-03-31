@@ -12,7 +12,7 @@ $tk = substr(str_shuffle("qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM12
 
 
 /* Code */
-$code = substr(str_shuffle("QWERTYUIOPLKJHGFDSAZXCVBNM1234567890"), 1, 5);
+$inv_number = substr(str_shuffle("QWERTYUIOPLKJHGFDSAZXCVBNM1234567890"), 1, 5);
 
 /* OTP */
 $otp = substr(str_shuffle("1234567890"), 1, 6);

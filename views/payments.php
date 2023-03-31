@@ -1,13 +1,14 @@
 <?php
 /*
- *   Crafted On Wed Mar 29 2023
+ *   Crafted On Fri Mar 31 2023
  *   Author Martin (martin@devlan.co.ke)
  */
 
 session_start();
 require_once('../config/config.php');
 require_once('../config/checklogin.php');
-require_once('../helpers/users.php');
+require_once('../config/codeGen.php');
+require_once('../helpers/payments.php');
 require_once('../partials/head.php');
 ?>
 
@@ -25,12 +26,12 @@ require_once('../partials/head.php');
                 <div class="container">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">System Users</h1>
+                            <h1 class="m-0">Payments</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
-                                <li class="breadcrumb-item"><a href="users">Users</a></li>
+                                <li class="breadcrumb-item"><a href="payments">Payments</a></li>
                                 <li class="breadcrumb-item active">Manage</li>
                             </ol>
                         </div><!-- /.col -->
@@ -44,7 +45,7 @@ require_once('../partials/head.php');
                 <div class="container">
                     <div class="d-flex flex-row-reverse bd-highlight">
                         <button type="button" data-toggle="modal" data-target="#add_modal" class="btn btn-outline-success">
-                            Add system users
+                            Add payment
                         </button>
                     </div>
                     <hr>
@@ -54,7 +55,7 @@ require_once('../partials/head.php');
                             <div class="modal-content">
                                 <div class="modal-header align-items-center">
                                     <div class="text-center">
-                                        <h6 class="mb-0 text-bold">Register new user</h6>
+                                        <h6 class="mb-0 text-bold">Register new payment</h6>
                                     </div>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -63,24 +64,69 @@ require_once('../partials/head.php');
                                 <div class="modal-body">
                                     <form class="needs-validation" method="post" enctype="multipart/form-data" role="form">
                                         <div class="row">
-                                            <div class="form-group col-md-8">
-                                                <label for="">Full names</label>
-                                                <input type="text" required name="user_names" class="form-control">
-                                            </div>
-                                            <div class="form-group col-md-4">
-                                                <label for="">Access level</label>
+                                            <div class="form-group col-md-12">
+                                                <label for="">Tenant details</label>
                                                 <select type="text" required name="user_type" class="form-control select2bs4">
-                                                    <option>User</option>
-                                                    <option>Administrator</option>
+                                                    <option>Select tenant</option>
+                                                    <?php
+                                                    $tenants_details_sql = mysqli_query(
+                                                        $mysqli,
+                                                        "SELECT * FROM houses h
+                                                        INNER JOIN tenants t ON h.house_id = t.tenant_house_id
+                                                        INNER JOIN properties p ON h.house_property_id = p.property_id"
+                                                    );
+                                                    if (mysqli_num_rows($tenants_details_sql) > 0) {
+                                                        $cnt = 1;
+                                                        while ($tenants = mysqli_fetch_array($tenants_details_sql)) {
+                                                    ?>
+                                                            <option>Names: <?php echo $tenants['tenant_name']; ?>, ID Number: <?php echo $tenants['tenant_national_id']; ?></option>
+                                                    <?php }
+                                                    } ?>
                                                 </select>
                                             </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="">Login username</label>
-                                                <input type="text" required name="user_login_name" class="form-control">
+                                            <div class="form-group col-md-12">
+                                                <fieldset class="border border-primary p-2">
+                                                    <legend class="w-auto text-primary font-weight-light">Tenant details</legend>
+                                                    <div class="d-flex justify-content-between">
+                                                        <ul class="list-group list-group-flush">
+                                                            <li class="list-group-item">National ID Number: <span id="IDNumber"></span></li>
+                                                            <li class="list-group-item">Contacts: <span id="TenantContacts"></span></li>
+                                                        </ul>
+                                                        <ul class="list-group list-group-flush">
+                                                            <li class="list-group-item">House Number: <span id="HouseNumber"></span></li>
+                                                            <li class="list-group-item">House Category: <span id="HouseCategory"></span></li>
+                                                            <li class="list-group-item">House Rent: Ksh <span id="HouseRent"></span></li>
+                                                        </ul>
+                                                        <ul class="list-group list-group-flush">
+                                                            <li class="list-group-item">Property Name: <span id="PropertyName"></span> </li>
+                                                            <li class="list-group-item">Property Location: <span id="PropertyLocation"></span></li>
+                                                        </ul>
+                                                    </div>
+                                                </fieldset>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="">Login password</label>
-                                                <input type="password" required name="user_password" class="form-control">
+                                                <label for="">Payment Reference Code</label>
+                                                <input type="text" required name="payment_ref_code" class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="">Invoice Number</label>
+                                                <input readonly type="text" value="INV/<?php echo date('m') . '/' . date('Y') . '/' . $inv_number; ?>" required name="payment_invoice_number" class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="">Payment Amount</label>
+                                                <input type="text" required name="payment_amount" class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="">Payment Means</label>
+                                                <select type="text" required name="payment_amount" class="form-control select2bs4">
+                                                    <option>Mpesa</option>
+                                                    <option>Bank Deposit</option>
+                                                    <option>Cash</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="">Date Paid</label>
+                                                <input type="text" required name="payment_amount" class="form-control datepicker">
                                             </div>
                                         </div>
                                         <div class="text-right">

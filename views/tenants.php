@@ -6,6 +6,7 @@
 
 session_start();
 require_once('../config/config.php');
+require_once('../config/checklogin.php');
 require_once('../helpers/tenants.php');
 require_once('../partials/head.php');
 ?>
