@@ -90,7 +90,7 @@
                         </div>
                     </div>
                     <div class="text-right">
-                        <button type="submit" name="Update_Users" class="btn btn-outline-success">Update</button>
+                        <button type="submit" name="Change_Password" class="btn btn-outline-success">Update</button>
                     </div>
                 </form>
             </div>
