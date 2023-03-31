@@ -138,7 +138,8 @@ require_once('../partials/head.php');
                                                                             "SELECT * FROM payments p
                                                                             INNER JOIN tenants t ON t.tenant_id = p.payment_tenant_id
                                                                             INNER JOIN houses h ON h.house_id = t.tenant_house_id
-                                                                            ORDER BY payment_id ASC"
+                                                                            WHERE t.tenant_id = '{$tenant_id}'
+                                                                           "
                                                                         );
                                                                         if (mysqli_num_rows($payments_sql) > 0) {
                                                                             while ($payments = mysqli_fetch_array($payments_sql)) {
