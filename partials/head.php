@@ -29,10 +29,14 @@
     <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/summernote/summernote-bs4.min.css">
     <!-- Toastr -->
     <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/toastr/toastr.min.css">
-    <!-- Data tables -->
     <!-- DataTables -->
     <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="<?php echo $base_dir; ?>../plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="<?php echo $base_dir; ?>../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="<?php echo $base_dir; ?>../plugins/daterangepicker/daterangepicker.css">
     <?php
     /* Alert Sesion Via Alerts */
     if (isset($_SESSION['success'])) {
