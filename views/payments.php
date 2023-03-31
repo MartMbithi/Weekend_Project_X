@@ -66,7 +66,7 @@ require_once('../partials/head.php');
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <label for="">Tenant details</label>
-                                                <select type="text" required name="user_type" class="form-control select2bs4">
+                                                <select type="text" required name="payment_tenant_id" class="form-control select2bs4">
                                                     <option>Select tenant</option>
                                                     <?php
                                                     $tenants_details_sql = mysqli_query(
@@ -118,19 +118,19 @@ require_once('../partials/head.php');
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="">Payment Means</label>
-                                                <select type="text" required name="payment_amount" class="form-control select2bs4">
+                                                <select type="text" required name="payment_type" class="form-control select2bs4">
                                                     <option>Mpesa</option>
                                                     <option>Bank Deposit</option>
                                                     <option>Cash</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-4">
-                                                <label for="">Date Paid</label>
-                                                <input type="text" required name="payment_amount" class="form-control datepicker">
+                                                <label for="">Date Paid(Ksh)</label>
+                                                <input type="number" required name="payment_amount" class="form-control datepicker">
                                             </div>
                                         </div>
                                         <div class="text-right">
-                                            <button type="submit" name="Add_Users" class="btn btn-outline-success">Add</button>
+                                            <button type="submit" name="Add_Payments" class="btn btn-outline-success">Add</button>
                                         </div>
                                     </form>
                                 </div>
@@ -142,45 +142,51 @@ require_once('../partials/head.php');
                         <div class="col-12 col-sm-12 col-md-12">
                             <div class="card card-outline card-success">
                                 <div class="card-header">
-                                    <h5 class="card-title">Registered system users</h5>
+                                    <h5 class="card-title">Payments records</h5>
                                 </div>
                                 <div class="card-body">
                                     <table class="table data_table table-striped">
                                         <thead>
                                             <tr>
-                                                <th>S/no</th>
-                                                <th>Names</th>
-                                                <th>Access level</th>
-                                                <th>Login username</th>
+                                                <th>Ref Code</th>
+                                                <th>Inv Number</th>
+                                                <th>Amount</th>
+                                                <th>Paid By</th>
+                                                <th>Paid On</th>
+                                                <th>House Number</th>
                                                 <th>Manage</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $users_sql = mysqli_query(
+                                            $payments_sql = mysqli_query(
                                                 $mysqli,
-                                                "SELECT * FROM users"
+                                                "SELECT * FROM payments p
+                                                INNER JOIN tenants t ON t.tenant_id = p.payment_tenant_id
+                                                INNER JOIN houses h ON h.house_id = t.tenant_house_id
+                                                ORDER BY payment_id ASC"
                                             );
-                                            if (mysqli_num_rows($users_sql) > 0) {
-                                                $cnt = 1;
-                                                while ($users = mysqli_fetch_array($users_sql)) {
+                                            if (mysqli_num_rows($payments_sql) > 0) {
+                                                while ($payments = mysqli_fetch_array($payments_sql)) {
                                             ?>
                                                     <tr>
-                                                        <td><?php echo $cnt; ?></td>
                                                         <td>
-                                                            <?php echo $users['user_names']; ?>
+                                                            <a href="receipt?view=<?php echo $payments['payment_id']; ?>">
+                                                                <?php echo $payments['payment_ref_code']; ?>
+                                                            </a>
                                                         </td>
-                                                        <td><?php echo $users['user_type']; ?></td>
-                                                        <td><?php echo $users['user_login_name']; ?></td>
+                                                        <td><?php echo $payments['payment_invoice_number']; ?></td>
+                                                        <td>Ksh <?php echo number_format($payments['payment_amount'], 2); ?></td>
+                                                        <td><?php echo $payments['tenant_name']; ?></td>
+                                                        <td><?php echo date('d M Y g:ia', strtotime($payments['payment_date'])); ?></td>
+                                                        <td><?php echo $payments['house_number']; ?></td>
                                                         <td>
-                                                            <a data-toggle="modal" href="#update_<?php echo $users['user_id']; ?>" class="badge badge-primary"><i class="fas fa-edit"></i> Edit</a>
-                                                            <a data-toggle="modal" href="#password_<?php echo $users['user_id']; ?>" class="badge badge-warning"><i class="fas fa-lock"></i> Edit password</a>
-                                                            <a data-toggle="modal" href="#delete_<?php echo $users['user_id']; ?>" class="badge badge-danger"><i class="fas fa-trash"></i> Delete</a>
+                                                            <a data-toggle="modal" href="#update_<?php echo $payments['payment_id']; ?>" class="badge badge-primary"><i class="fas fa-edit"></i> Edit</a>
+                                                            <a data-toggle="modal" href="#delete_<?php echo $payments['payment_id']; ?>" class="badge badge-danger"><i class="fas fa-trash"></i> Delete</a>
                                                         </td>
                                                     </tr>
                                             <?php
-                                                    $cnt = $cnt + 1;
-                                                    include('../modals/users.php');
+                                                    include('../modals/payments.php');
                                                 }
                                             } ?>
                                         </tbody>
