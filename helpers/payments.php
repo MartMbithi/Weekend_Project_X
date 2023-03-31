@@ -38,11 +38,12 @@ if (isset($_POST['Update_Payment'])) {
     $payment_amount = mysqli_real_escape_string($mysqli, $_POST['payment_amount']);
     $payment_type = mysqli_real_escape_string($mysqli, $_POST['payment_type']);
     $payment_date = mysqli_real_escape_string($mysqli, $_POST['payment_date']);
+    $payment_invoice_number = mysqli_real_escape_string($mysqli, $_POST['payment_invoice_number']);
     $payment_id = mysqli_real_escape_string($mysqli, $_POST['payment_id']);
 
     /* Update */
     $update_payment = "UPDATE payments SET payment_amount = '{$payment_amount}', payment_type = '{$payment_type}',
-    payment_date = '{$payment_date}' WHERE payment_id = '{$payment_id}'";
+    payment_date = '{$payment_date}', payment_invoice_number = '{$payment_invoice_number}'  WHERE payment_id = '{$payment_id}'";
 
     if (mysqli_query($mysqli, $update_payment)) {
         $success = "Payment updated successfully";
