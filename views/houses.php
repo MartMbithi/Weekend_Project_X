@@ -64,7 +64,7 @@ require_once('../partials/head.php');
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <label for="">Property name</label>
-                                                <select type="text" required name="house_property_id" class="form-control">
+                                                <select type="text" required name="house_property_id" class="form-control select2bs4">
                                                     <option value="">Select property</option>
                                                     <?php
                                                     $property_sql = mysqli_query(
@@ -85,7 +85,7 @@ require_once('../partials/head.php');
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="">House category</label>
-                                                <select type="text" required name="house_category" class="form-control">
+                                                <select type="text" required name="house_category" class="form-control select2bs4">
                                                     <option>Singles</option>
                                                     <option>Bedsitters</option>
                                                     <option>One Bedrooms</option>

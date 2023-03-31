@@ -64,11 +64,11 @@ require_once('../partials/head.php');
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <label for="">House details</label>
-                                                <select type="text" required name="tenant_house_id" class="form-control">
+                                                <select type="text" required name="tenant_house_id" class="form-control select2bs4" style="width: 100%;">
                                                     <option value="">Select house details</option>
                                                     <?php
                                                     $property_sql = mysqli_query(
-                                                        $mysqli,
+                                                        $mysqli, 
                                                         "SELECT * FROM properties p
                                                         INNER JOIN houses h ON p.property_id = h.house_property_id
                                                         WHERE h.house_status = 'Vacant'"

@@ -6,6 +6,8 @@
 </script>
 <!-- Chart Js -->
 <script src="<?php echo $base_dir; ?>../public/plugins/chart.js/Chart.min.js"></script>
+<!-- Select2 -->
+<script src="<?php echo $base_dir; ?>../public/plugins/select2/js/select2.full.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="<?php echo $base_dir; ?>../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- daterangepicker -->
@@ -66,4 +68,9 @@ require_once('../modals/logout.php'); ?>
             return this.href == url;
         }).parent().addClass('active');
     });
+
+    /* Init Select2 */
+    $('.select2bs4').select2({
+        theme: 'bootstrap4'
+    })
 </script>

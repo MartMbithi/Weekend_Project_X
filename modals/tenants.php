@@ -81,7 +81,7 @@
                             <input type="hidden" value="<?php echo $tenants['tenant_id']; ?>" required name="tenant_id" class="form-control">
                             <input type="hidden" value="<?php echo $tenants['tenant_house_id']; ?>" required name="tenant_old_house_id" class="form-control">
                             <div class="form-group col-md-12">
-                                <select type="text" required name="tenant_house_id" class="form-control">
+                                <select type="text" required name="tenant_house_id" class="form-control select2bs4">
                                     <option value="">Select house details</option>
                                     <?php
                                     $property_sql = mysqli_query(

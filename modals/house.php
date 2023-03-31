@@ -14,7 +14,7 @@
                     <div class="row">
                         <div class="form-group col-md-12">
                             <label for="">Property name</label>
-                            <select type="text" required name="house_property_id" class="form-control">
+                            <select type="text" required name="house_property_id" class="form-control select2bs4">
                                 <option value="<?php echo $houses['property_id']; ?>"><?php echo $houses['property_name'] . ' ' . $houses['property_location']; ?></option>
                                 <?php
                                 $property_sql = mysqli_query(
@@ -36,7 +36,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">House category</label>
-                            <select type="text" required name="house_category" class="form-control">
+                            <select type="text" required name="house_category" class="form-control select2bs4">
                                 <?php
                                 if ($houses['house_category'] == 'Singles') {
                                     echo '
@@ -70,7 +70,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">House status</label>
-                            <select type="text" required name="house_status" class="form-control">
+                            <select type="text" required name="house_status" class="form-control select2bs4">
                                 <?php if ($houses['house_status'] == 'Vacant') { ?>
                                     <option selected>Vacant</option>
                                     <option>Occupied</option>
