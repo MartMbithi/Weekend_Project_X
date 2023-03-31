@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 30, 2023 at 05:40 PM
+-- Generation Time: Mar 31, 2023 at 04:06 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -64,8 +64,9 @@ CREATE TABLE `houses` (
 INSERT INTO `houses` (`house_id`, `house_property_id`, `house_number`, `house_category`, `house_status`, `house_rent`) VALUES
 (1, 1, '001', 'Singles', 'Occupied', '3900'),
 (2, 1, '002', 'Singles', 'Occupied', '3500'),
-(3, 2, '003', 'Singles', 'Occupied', '3500'),
-(6, 1, '008', 'Bedsitters', 'Occupied', '7800');
+(3, 2, '003', 'Singles', 'Vacant', '3500'),
+(6, 1, '008', 'Bedsitters', 'Occupied', '7800'),
+(7, 1, 'A120', 'Bedsitters', 'Occupied', '4500');
 
 -- --------------------------------------------------------
 
@@ -82,6 +83,16 @@ CREATE TABLE `payments` (
   `payment_tenant_id` int(200) NOT NULL,
   `payment_date` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`payment_id`, `payment_ref_code`, `payment_invoice_number`, `payment_amount`, `payment_type`, `payment_tenant_id`, `payment_date`) VALUES
+(2, 'RCV1ERERR534', 'INV/03/2023/Y9RDS', '7800', 'Mpesa', 6, '04/01/2023'),
+(3, 'RCV6231256', 'INV/03/2023/YQAOI', '4500', 'Mpesa', 5, '03/31/2023'),
+(4, 'RCV62TGH99', 'INV/03/2023/POKCI', '3900', 'Mpesa', 2, '03/31/2023'),
+(5, 'RCV623125645', 'INV/03/2023/QLNSA', '4500', 'Mpesa', 5, '03/31/2023');
 
 -- --------------------------------------------------------
 
@@ -123,10 +134,10 @@ CREATE TABLE `tenants` (
 --
 
 INSERT INTO `tenants` (`tenant_id`, `tenant_national_id`, `tenant_name`, `tenant_mobile_number`, `tenant_house_id`, `tenant_date_of_registration`) VALUES
-(1, '35574881', 'Martin Mbithi', '0740847563', 2, '2023-03-30'),
-(2, '356777690', 'Bosco Mulwa', '0740847567', 1, '2023-03-30'),
-(5, '356777690', 'James Doe', '0277555425', 3, '2023-03-30'),
-(6, '3567778790', 'Janet Doe', '0712556789', 6, '2023-03-30');
+(1, '35574881', 'Martin Mbithi', '0740847563', 2, '03/24/2023'),
+(2, '356777690', 'Bosco Mulwa', '0740847567', 1, '03/24/2023'),
+(5, '356777690', 'James Doe', '0277555425', 7, '03/24/2023'),
+(6, '3567778790', 'Janet Doe', '0712556789', 6, '03/24/2023');
 
 -- --------------------------------------------------------
 
@@ -139,17 +150,15 @@ CREATE TABLE `users` (
   `user_type` varchar(200) NOT NULL,
   `user_names` varchar(200) NOT NULL,
   `user_login_name` varchar(200) NOT NULL,
-  `user_password` varchar(200) NOT NULL,
-  `user_access_level` int(5) NOT NULL
+  `user_password` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_type`, `user_names`, `user_login_name`, `user_password`, `user_access_level`) VALUES
-(1, 'Admin', 'System Admin', 'admin', 'a69681bcf334ae130217fea4505fd3c994f5683f', 0),
-(2, 'Admin', 'Martin', 'martin', 'a69681bcf334ae130217fea4505fd3c994f5683f', 1);
+INSERT INTO `users` (`user_id`, `user_type`, `user_names`, `user_login_name`, `user_password`) VALUES
+(1, 'Administrator', 'System', 'sysadmin', 'a69681bcf334ae130217fea4505fd3c994f5683f');
 
 --
 -- Indexes for dumped tables
@@ -209,13 +218,13 @@ ALTER TABLE `expenses`
 -- AUTO_INCREMENT for table `houses`
 --
 ALTER TABLE `houses`
-  MODIFY `house_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `house_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `payment_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `properties`
@@ -233,7 +242,7 @@ ALTER TABLE `tenants`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
