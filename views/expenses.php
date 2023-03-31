@@ -45,7 +45,7 @@ require_once('../partials/head.php');
                 <div class="container">
                     <div class="d-flex flex-row-reverse bd-highlight">
                         <button type="button" data-toggle="modal" data-target="#add_modal" class="btn btn-outline-success">
-                            Add payment
+                            Add expense
                         </button>
                     </div>
                     <hr>
@@ -55,7 +55,7 @@ require_once('../partials/head.php');
                             <div class="modal-content">
                                 <div class="modal-header align-items-center">
                                     <div class="text-center">
-                                        <h6 class="mb-0 text-bold">Register new payment</h6>
+                                        <h6 class="mb-0 text-bold">Register new expense</h6>
                                     </div>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -65,72 +65,21 @@ require_once('../partials/head.php');
                                     <form class="needs-validation" method="post" enctype="multipart/form-data" role="form">
                                         <div class="row">
                                             <div class="form-group col-md-12">
-                                                <label for="">Tenant details</label>
-                                                <select type="text" required name="payment_tenant_id" class="form-control select2bs4" id="TenantDetails">
-                                                    <option>Select tenant</option>
-                                                    <?php
-                                                    $tenants_details_sql = mysqli_query(
-                                                        $mysqli,
-                                                        "SELECT * FROM houses h
-                                                        INNER JOIN tenants t ON h.house_id = t.tenant_house_id
-                                                        INNER JOIN properties p ON h.house_property_id = p.property_id"
-                                                    );
-                                                    if (mysqli_num_rows($tenants_details_sql) > 0) {
-                                                        $cnt = 1;
-                                                        while ($tenants = mysqli_fetch_array($tenants_details_sql)) {
-                                                    ?>
-                                                            <option value="<?php echo $tenants['tenant_id']; ?>">Names: <?php echo $tenants['tenant_name']; ?>, ID Number: <?php echo $tenants['tenant_national_id']; ?></option>
-                                                    <?php }
-                                                    } ?>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <fieldset class="border border-primary p-2">
-                                                    <legend class="w-auto text-primary font-weight-light">Tenant details</legend>
-                                                    <div class="d-flex justify-content-between">
-                                                        <ul class="list-group list-group-flush">
-                                                            <li class="list-group-item">National ID Number: <span id="IDNumber"></span></li>
-                                                            <li class="list-group-item">Contacts: <span id="TenantContacts"></span></li>
-                                                        </ul>
-                                                        <ul class="list-group list-group-flush">
-                                                            <li class="list-group-item">House Number: <span id="HouseNumber"></span></li>
-                                                            <li class="list-group-item">House Category: <span id="HouseCategory"></span></li>
-                                                            <li class="list-group-item">House Rent: Ksh <span id="HouseRent"></span></li>
-                                                        </ul>
-                                                        <ul class="list-group list-group-flush">
-                                                            <li class="list-group-item">Property Name: <span id="PropertyName"></span> </li>
-                                                            <li class="list-group-item">Property Location: <span id="PropertyLocation"></span></li>
-                                                        </ul>
-                                                    </div>
-                                                </fieldset>
+                                                <label for="">Expense type</label>
+                                                <input type="text" required name="expense_type" class="form-control">
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="">Payment Reference Code</label>
-                                                <input type="text" required name="payment_ref_code" class="form-control">
+                                                <label for="">Expense amount</label>
+                                                <input type="text" required name="expense_amount" class="form-control">
                                             </div>
+
                                             <div class="form-group col-md-6">
-                                                <label for="">Invoice Number</label>
-                                                <input readonly type="text" value="INV/<?php echo date('m') . '/' . date('Y') . '/' . $inv_number; ?>" required name="payment_invoice_number" class="form-control">
-                                            </div>
-                                            <div class="form-group col-md-4">
-                                                <label for="">Payment Amount</label>
-                                                <input type="text" required name="payment_amount" class="form-control">
-                                            </div>
-                                            <div class="form-group col-md-4">
-                                                <label for="">Payment Means</label>
-                                                <select type="text" required name="payment_type" class="form-control select2bs4">
-                                                    <option>Mpesa</option>
-                                                    <option>Bank Deposit</option>
-                                                    <option>Cash</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-4">
-                                                <label for="">Date Paid(Ksh)</label>
-                                                <input type="text" required name="payment_date" class="form-control datepicker">
+                                                <label for="">Date</label>
+                                                <input type="text" required name="expense_date" class="form-control datepicker">
                                             </div>
                                         </div>
                                         <div class="text-right">
-                                            <button type="submit" name="Add_Payment" class="btn btn-outline-success">Add</button>
+                                            <button type="submit" name="Add_Expense" class="btn btn-outline-success">Add</button>
                                         </div>
                                     </form>
                                 </div>
@@ -142,51 +91,48 @@ require_once('../partials/head.php');
                         <div class="col-12 col-sm-12 col-md-12">
                             <div class="card card-outline card-success">
                                 <div class="card-header">
-                                    <h5 class="card-title">Payments records</h5>
+                                    <h5 class="card-title">Expenses</h5>
                                 </div>
                                 <div class="card-body">
                                     <table class="table data_table table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Ref Code</th>
-                                                <th>Inv Number</th>
+                                                <th>S/no</th>
+                                                <th>Expense Type</th>
                                                 <th>Amount</th>
-                                                <th>Paid By</th>
-                                                <th>Paid On</th>
-                                                <th>House Number</th>
+                                                <th>Posted By</th>
+                                                <th>Date Posted</th>
                                                 <th>Manage</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $payments_sql = mysqli_query(
+                                            $expenses_sql = mysqli_query(
                                                 $mysqli,
-                                                "SELECT * FROM payments p
-                                                INNER JOIN tenants t ON t.tenant_id = p.payment_tenant_id
-                                                INNER JOIN houses h ON h.house_id = t.tenant_house_id
-                                                ORDER BY payment_id ASC"
+                                                "SELECT * FROM expenses e
+                                                INNER JOIN users u ON u.user_id = e.expense_user_id
+                                                ORDER BY expense_id ASC"
                                             );
-                                            if (mysqli_num_rows($payments_sql) > 0) {
-                                                while ($payments = mysqli_fetch_array($payments_sql)) {
+                                            if (mysqli_num_rows($expenses_sql) > 0) {
+                                                $cnt = 1;
+                                                while ($expenses = mysqli_fetch_array($expenses_sql)) {
                                             ?>
                                                     <tr>
                                                         <td>
-                                                            <a href="receipt?view=<?php echo $payments['payment_id']; ?>">
-                                                                <?php echo $payments['payment_ref_code']; ?>
-                                                            </a>
+                                                            <?php echo $cnt; ?>
                                                         </td>
-                                                        <td><?php echo $payments['payment_invoice_number']; ?></td>
-                                                        <td>Ksh <?php echo number_format($payments['payment_amount'], 2); ?></td>
-                                                        <td><?php echo $payments['tenant_name']; ?></td>
-                                                        <td><?php echo date('d M Y', strtotime($payments['payment_date'])); ?></td>
-                                                        <td><?php echo $payments['house_number']; ?></td>
+                                                        <td><?php echo $expenses['expense_type']; ?></td>
+                                                        <td>Ksh <?php echo number_format($expenses['expense_amount'], 2); ?></td>
+                                                        <td><?php echo $expenses['user_names']; ?></td>
+                                                        <td><?php echo date('d M Y', strtotime($expenses['expense_date'])); ?></td>
                                                         <td>
-                                                            <a data-toggle="modal" href="#update_<?php echo $payments['payment_id']; ?>" class="badge badge-primary"><i class="fas fa-edit"></i> Edit</a>
-                                                            <a data-toggle="modal" href="#delete_<?php echo $payments['payment_id']; ?>" class="badge badge-danger"><i class="fas fa-trash"></i> Delete</a>
+                                                            <a data-toggle="modal" href="#update_<?php echo $expenses['expense_id']; ?>" class="badge badge-primary"><i class="fas fa-edit"></i> Edit</a>
+                                                            <a data-toggle="modal" href="#delete_<?php echo $expenses['expense_id']; ?>" class="badge badge-danger"><i class="fas fa-trash"></i> Delete</a>
                                                         </td>
                                                     </tr>
                                             <?php
-                                                    include('../modals/payments.php');
+                                                    $cnt = $cnt + 1;
+                                                    include('../modals/expenses.php');
                                                 }
                                             } ?>
                                         </tbody>

@@ -7,7 +7,7 @@
 
 /* Add Expense  */
 if (isset($_POST['Add_Expense'])) {
-    $expense_user_id = mysqli_real_escape_string($mysqli, $_POST['expense_user_id']);
+    $expense_user_id = mysqli_real_escape_string($mysqli, $_SESSION['user_id']);
     $expense_type = mysqli_real_escape_string($mysqli, $_POST['expense_type']);
     $expense_amount = mysqli_real_escape_string($mysqli, $_POST['expense_amount']);
     $expense_date = mysqli_real_escape_string($mysqli, $_POST['expense_date']);
