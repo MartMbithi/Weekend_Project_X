@@ -44,7 +44,7 @@
             <form method="POST">
                 <div class="modal-body text-center text-danger">
                     <img src='../public/img/bin.gif' height="120px">
-                    <h4>Delete <?php echo $expenses['property_name']; ?>?</h4>
+                    <h4>Delete expense?</h4>
                     <br>
                     <!-- Hide This -->
                     <input type="hidden" name="expense_id" value="<?php echo $expenses['expense_id']; ?>">
