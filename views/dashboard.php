@@ -43,115 +43,132 @@ require_once('../partials/head.php');
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box card-outline card-success">
-                                <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-hotel"></i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Properties</span>
-                                    <span class="info-box-number">
-                                        <?php echo $properties; ?>
-                                    </span>
+                            <a href="properties" class="text-dark">
+                                <div class="info-box card-outline card-success">
+                                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-hotel"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Properties</span>
+                                        <span class="info-box-number">
+                                            <?php echo $properties; ?>
+                                        </span>
+                                    </div>
+                                    <!-- /.info-box-content -->
                                 </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
+                                <!-- /.info-box -->
+                            </a>
+                        </div>
+
+
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <a href="houses" class="text-dark">
+                                <div class="info-box card-outline card-success">
+                                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-home"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Houses</span>
+                                        <span class="info-box-number">
+                                            <?php echo $houses; ?>
+                                        </span>
+                                    </div>
+                                    <!-- /.info-box-content -->
+                                </div>
+                                <!-- /.info-box -->
+                            </a>
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box card-outline card-success">
-                                <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-home"></i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Houses</span>
-                                    <span class="info-box-number">
-                                        <?php echo $houses; ?>
-                                    </span>
+                            <a href="tenants" class="text-dark">
+                                <div class="info-box card-outline card-success">
+                                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-users"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Tenants</span>
+                                        <span class="info-box-number">
+                                            <?php echo $tenants; ?>
+                                        </span>
+                                    </div>
+                                    <!-- /.info-box-content -->
                                 </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
+                                <!-- /.info-box -->
+                            </a>
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box card-outline card-success">
-                                <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-users"></i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Tenants</span>
-                                    <span class="info-box-number">
-                                        <?php echo $tenants; ?>
-                                    </span>
+                            <a href="users" class="text-dark">
+                                <div class="info-box card-outline card-success">
+                                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-user-tie"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">System Users</span>
+                                        <span class="info-box-number">
+                                            <?php echo $users; ?>
+                                        </span>
+                                    </div>
+                                    <!-- /.info-box-content -->
                                 </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
+                                <!-- /.info-box -->
+                            </a>
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box card-outline card-success">
-                                <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-user-tie"></i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text">System Users</span>
-                                    <span class="info-box-number">
-                                        <?php echo $users; ?>
-                                    </span>
+                            <a href="houses" class="text-dark">
+                                <div class="info-box card-outline card-success">
+                                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-list"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Vacant Houses</span>
+                                        <span class="info-box-number">
+                                            <?php echo $vacant; ?>
+                                        </span>
+                                    </div>
+                                    <!-- /.info-box-content -->
                                 </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
+                                <!-- /.info-box -->
+                            </a>
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box card-outline card-success">
-                                <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-list"></i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Vacant Houses</span>
-                                    <span class="info-box-number">
-                                        <?php echo $vacant; ?>
-                                    </span>
+                            <a href="houses" class="text-dark">
+                                <div class="info-box card-outline card-success">
+                                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-check"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Occupied Houses</span>
+                                        <span class="info-box-number">
+                                            <?php echo $occupied; ?>
+                                        </span>
+                                    </div>
+                                    <!-- /.info-box-content -->
                                 </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
+                                <!-- /.info-box -->
+                            </a>
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box card-outline card-success">
-                                <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-check"></i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Occupied Houses</span>
-                                    <span class="info-box-number">
-                                        <?php echo $occupied; ?>
-                                    </span>
+                            <a href="payments" class="text-dark">
+                                <div class="info-box card-outline card-success">
+                                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-hand-holding-usd"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Cumulative Payments</span>
+                                        <span class="info-box-number">
+                                            Kes <?php echo number_format($payment_amount, 2); ?>
+                                        </span>
+                                    </div>
+                                    <!-- /.info-box-content -->
                                 </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
+                                <!-- /.info-box -->
+                            </a>
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box card-outline card-success">
-                                <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-hand-holding-usd"></i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Cumulative Payments</span>
-                                    <span class="info-box-number">
-                                        Kes <?php echo number_format($payment_amount, 2); ?>
-                                    </span>
+                            <a href="expenses" class="text-dark">
+                                <div class="info-box card-outline card-success">
+                                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-funnel-dollar"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Cumulative Expenses</span>
+                                        <span class="info-box-number">
+                                            Kes <?php echo number_format($expense_amount, 2); ?>
+                                        </span>
+                                    </div>
+                                    <!-- /.info-box-content -->
                                 </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box card-outline card-success">
-                                <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-funnel-dollar"></i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Cumulative Expenses</span>
-                                    <span class="info-box-number">
-                                        Kes <?php echo number_format($expense_amount, 2); ?>
-                                    </span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
+                                <!-- /.info-box -->
+                            </a>
                         </div>
                     </div>
 
