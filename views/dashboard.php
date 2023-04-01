@@ -40,6 +40,9 @@ require_once('../partials/head.php');
 
             <!-- Main content -->
             <div class="content">
+                <div class="text-right">
+                    <!-- Add Filter Button -->
+                </div>
                 <div class="container">
                     <div class="row">
                         <div class="col-12 col-sm-6 col-md-3">
@@ -193,7 +196,6 @@ require_once('../partials/head.php');
                                     <div class="info-box-content">
                                         <span class="info-box-text">Received Revenue For <?php echo date('M, Y'); ?></span>
                                         <span class="info-box-number">
-                                            <?php echo date('d/m/Y', strtotime($todays_date)); ?>
                                             Kes <?php echo number_format($expense_amount, 2); ?>
                                         </span>
                                     </div>
