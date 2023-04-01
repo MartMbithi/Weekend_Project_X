@@ -1,0 +1,134 @@
+<?php
+/*
+ *   Crafted On Wed Mar 29 2023
+ *   Author Martin (martin@devlan.co.ke)
+ */
+
+session_start();
+require_once('../config/config.php');
+require_once('../config/checklogin.php');
+require_once('../helpers/tenants.php');
+require_once('../partials/head.php');
+?>
+
+<body class="hold-transition layout-top-nav">
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <?php require_once('../partials/navbar.php');
+        $user_id = mysqli_real_escape_string($mysqli, $_SESSION['user_id']);
+        $user_details_sql = mysqli_query(
+            $mysqli,
+            "SELECT * FROM users WHERE user_id = '{$user_id}'"
+        );
+        if (mysqli_num_rows($user_details_sql) > 0) {
+            while ($user = mysqli_fetch_array($user_details_sql)) {
+        ?>
+                <!-- /.navbar -->
+
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
+                    <!-- Content Header (Page header) -->
+                    <div class="content-header">
+                        <div class="container">
+                            <div class="row mb-2">
+                                <div class="col-sm-6">
+                                    <h1 class="m-0"><?php echo $user['user_names']; ?> Profile Details</h1>
+                                </div><!-- /.col -->
+                                <div class="col-sm-6">
+                                    <ol class="breadcrumb float-sm-right">
+                                        <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
+                                        <li class="breadcrumb-item"><a href="dashboard">Dashbard</a></li>
+                                        <li class="breadcrumb-item active">Profile Settings</li>
+                                    </ol>
+                                </div><!-- /.col -->
+                            </div><!-- /.row -->
+                        </div><!-- /.container-fluid -->
+                    </div>
+                    <!-- /.content-header -->
+
+                    <!-- Main content -->
+                    <div class="content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <!-- Profile Image -->
+                                    <div class="card card-success card-outline">
+                                        <div class="card-body box-profile">
+                                            <div class="text-center">
+                                                <img class="profile-user-img img-fluid img-circle" src="../public/img/avatar.png" alt="User profile picture">
+                                            </div>
+
+                                            <h3 class="profile-username text-center"><?php echo $user['user_names']; ?></h3>
+
+                                            <ul class="list-group list-group-unbordered mb-3">
+                                                <li class="list-group-item">
+                                                    <b>Access level: </b> <a class="float-right"><?php echo $user['user_type']; ?></a>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <b>Login username</b> <a class="float-right"><?php echo $user['user_login_name']; ?></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- /.card-body -->
+                                    </div>
+                                    <!-- /.card -->
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="card card-success card-outline">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-3 col-sm-3">
+                                                    <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
+                                                        <a class="nav-link active" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-home" role="tab" aria-controls="vert-tabs-home" aria-selected="true">Edit Personal details</a>
+                                                        <a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Change password</a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-9 col-sm-9">
+                                                    <div class="tab-content" id="vert-tabs-tabContent">
+                                                        <div class="tab-pane text-left fade show active" id="vert-tabs-home" role="tabpanel" aria-labelledby="vert-tabs-home-tab">
+                                                            <div class="card-header">
+                                                                <h3 class="card-title">Edit personal details</h3>
+                                                            </div>
+
+                                                            <!-- /.card-body -->
+                                                        </div>
+                                                        <div class="tab-pane fade" id="vert-tabs-profile" role="tabpanel" aria-labelledby="vert-tabs-profile-tab">
+                                                            <div class="card-header">
+                                                                <h3 class="card-title">Update details</h3>
+                                                            </div>
+                                                            <div class="card-body">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.card -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Main Footer -->
+                        <?php
+                        $i = 0;
+                        while ($i <= 4) {
+                            echo "<br>";
+                            $i++;
+                        }
+                        require_once('../partials/footer.php');
+                        ?>
+                    </div>
+                    <!-- ./wrapper -->
+            <?php }
+        } ?>
+                </div>
+
+                <!-- Scripts -->
+                <?php require_once('../partials/scripts.php'); ?>
+
+    </div>
+</body>
+
+</html>
