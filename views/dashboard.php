@@ -178,7 +178,7 @@ require_once('../partials/head.php');
                                 <div class="info-box card-outline card-success">
                                     <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-hand-holding-usd"></i></span>
                                     <div class="info-box-content">
-                                        <span class="info-box-text">Projected Revenue For <?php echo date('M, Y'); ?></span>
+                                        <span class="info-box-text">Projected Revenue For <?php echo date('M Y', strtotime('-1 month')); ?></span>
                                         <span class="info-box-number">
                                             Kes <?php echo number_format($projected_amount, 2); ?>
                                         </span>
@@ -194,7 +194,7 @@ require_once('../partials/head.php');
                                 <div class="info-box card-outline card-success">
                                     <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-funnel-dollar"></i></span>
                                     <div class="info-box-content">
-                                        <span class="info-box-text">Received Revenue For <?php echo date('M, Y'); ?></span>
+                                        <span class="info-box-text">Received Revenue For <?php echo date('M, Y', strtotime('-1 month')); ?></span>
                                         <span class="info-box-number">
                                             Kes <?php echo number_format($expense_amount, 2); ?>
                                         </span>
