@@ -209,7 +209,11 @@ require_once('../partials/head.php');
                                                 while ($payments = mysqli_fetch_array($payments_sql)) {
                                             ?>
                                                     <tr>
-                                                        <td><?php echo $payments['payment_ref_code']; ?></td>
+                                                        <td>
+                                                            <a href="receipt?view=<?php echo $payments['payment_id']; ?>">
+                                                                <?php echo $payments['payment_ref_code']; ?>
+                                                            </a>
+                                                        </td>
                                                         <td><?php echo $payments['payment_invoice_number']; ?></td>
                                                         <td>Ksh <?php echo number_format($payments['payment_amount'], 2); ?></td>
                                                         <td><?php echo $payments['tenant_name']; ?></td>
