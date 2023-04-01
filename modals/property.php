@@ -1,3 +1,51 @@
+<!-- Add house -->
+<div class="modal fade fixed-right" id="add_<?php echo $properties['property_id']; ?>" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered  modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header align-items-center">
+                <div class="text-center">
+                    <h6 class="mb-0 text-bold">Register new house</h6>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation" method="post" enctype="multipart/form-data" role="form">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label for="">Property name</label>
+                            <select type="text" required name="house_property_id" class="form-control selecbs4">
+                                <option selected value="<?php echo $properties['property_id']; ?>"><?php echo $properties['property_name'] . ' ' . $properties['property_location']; ?></option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="">House number</label>
+                            <input type="text" required name="house_number" class="form-control">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="">House category</label>
+                            <select type="text" required name="house_category" class="form-control select2bs4">
+                                <option>Singles</option>
+                                <option>Bedsitters</option>
+                                <option>One Bedrooms</option>
+                                <option>Two Bedrooms</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="">House rent(Ksh)</label>
+                            <input type="text" required name="house_rent" class="form-control">
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" name="Add_House" class="btn btn-outline-success">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End add house -->
 <div class="modal fade fixed-right" id="update_<?php echo $properties['property_id']; ?>" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered  modal-xl" role="document">
         <div class="modal-content">
