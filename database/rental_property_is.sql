@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 31, 2023 at 04:06 PM
+-- Generation Time: Apr 01, 2023 at 04:23 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -40,7 +40,7 @@ CREATE TABLE `expenses` (
 --
 
 INSERT INTO `expenses` (`expense_id`, `expense_user_id`, `expense_type`, `expense_amount`, `expense_date`) VALUES
-(1, 1, 'House renovations', '45000', '12-12-2022');
+(1, 1, 'House renovations', '45000', '03/30/2023');
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,10 @@ INSERT INTO `houses` (`house_id`, `house_property_id`, `house_number`, `house_ca
 (2, 1, '002', 'Singles', 'Occupied', '3500'),
 (3, 2, '003', 'Singles', 'Vacant', '3500'),
 (6, 1, '008', 'Bedsitters', 'Occupied', '7800'),
-(7, 1, 'A120', 'Bedsitters', 'Occupied', '4500');
+(7, 1, 'A120', 'Bedsitters', 'Occupied', '4500'),
+(8, 4, 'A001', 'Singles', 'Vacant', '4500'),
+(9, 1, 'A002', 'Singles', 'Vacant', '4500'),
+(10, 1, 'A003', 'Singles', 'Vacant', '4500');
 
 -- --------------------------------------------------------
 
@@ -89,10 +92,10 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`payment_id`, `payment_ref_code`, `payment_invoice_number`, `payment_amount`, `payment_type`, `payment_tenant_id`, `payment_date`) VALUES
-(2, 'RCV1ERERR534', 'INV/03/2023/Y9RDS', '7800', 'Mpesa', 6, '04/01/2023'),
-(3, 'RCV6231256', 'INV/03/2023/YQAOI', '4500', 'Mpesa', 5, '03/31/2023'),
-(4, 'RCV62TGH99', 'INV/03/2023/POKCI', '3900', 'Mpesa', 2, '03/31/2023'),
-(5, 'RCV623125645', 'INV/03/2023/QLNSA', '4500', 'Mpesa', 5, '03/31/2023');
+(6, 'RCV1ERERR534', 'INV/04/2023/EDNAY', '3500', 'Mpesa', 1, '03/31/2023'),
+(7, 'RCV6231ERE', 'INV/04/2023/XTBWQ', '3900', 'Mpesa', 2, '03/31/2023'),
+(8, 'RCV6231256', 'INV/04/2023/M5XE7', '4500', 'Mpesa', 5, '03/31/2023'),
+(9, 'RCV62TGH99', 'INV/04/2023/9QXTL', '7800', 'Mpesa', 6, '03/30/2023');
 
 -- --------------------------------------------------------
 
@@ -112,7 +115,8 @@ CREATE TABLE `properties` (
 
 INSERT INTO `properties` (`property_id`, `property_name`, `property_location`) VALUES
 (1, 'Peak View Appartments', 'Wote Town Along Wote-Kathonzweni Road'),
-(2, 'Iyke Flatts', 'Wote CBD Opposite Ngooni Supermarket');
+(2, 'Iyke Flatts', 'Wote CBD Opposite Ngooni Supermarket'),
+(4, 'Tripple G Flatts', 'Kathonzweni - Along Wote-Makindu Road');
 
 -- --------------------------------------------------------
 
@@ -212,25 +216,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
-  MODIFY `expense_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `expense_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `houses`
 --
 ALTER TABLE `houses`
-  MODIFY `house_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `house_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `payment_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `properties`
 --
 ALTER TABLE `properties`
-  MODIFY `property_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `property_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tenants`
