@@ -11,7 +11,7 @@ if (isset($_POST['Update_Personal_Details'])) {
     $user_login_name = mysqli_real_escape_string($mysqli, $_POST['user_login_name']);
 
     /* Persist */
-    $update_details_sql = "UPDATE users SET user_names = '{$user_names}', user_login_username = '{$user_login_name}'
+    $update_details_sql = "UPDATE users SET user_names = '{$user_names}', user_login_name = '{$user_login_name}'
     WHERE user_id = '{$user_id}'";
 
     if (mysqli_query($mysqli, $update_details_sql)) {

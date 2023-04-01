@@ -82,11 +82,11 @@
                         <div class="form-group col-md-6">
                             <label for="">New password</label>
                             <input type="hidden" required name="user_id" value="<?php echo $users['user_id']; ?>" class="form-control">
-                            <input type="password" required name="new_password" class="form-control">
+                            <input type="password" required name="new_password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">Confirm password</label>
-                            <input type="password" required name="confirm_password" class="form-control">
+                            <input type="password" required name="confirm_password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters">
                         </div>
                     </div>
                     <div class="text-right">

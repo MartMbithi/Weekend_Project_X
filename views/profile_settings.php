@@ -90,13 +90,15 @@ require_once('../partials/head.php');
                                                             <div class="card-header">
                                                                 <h3 class="card-title">Edit personal details</h3>
                                                             </div>
+                                                            <br>
+
                                                             <form class="needs-validation" method="post" enctype="multipart/form-data" role="form">
                                                                 <div class="row">
-                                                                    <div class="form-group col-md-6">
+                                                                    <div class="form-group col-md-12">
                                                                         <label for="">Full names</label>
                                                                         <input type="text" required name="user_names" value="<?php echo $user['user_names']; ?>" class="form-control">
                                                                     </div>
-                                                                    <div class="form-group col-md-6">
+                                                                    <div class="form-group col-md-12">
                                                                         <label for="">Login username</label>
                                                                         <input type="text" required name="user_login_name" value="<?php echo $user['user_login_name']; ?>" class="form-control">
                                                                     </div>
@@ -116,15 +118,15 @@ require_once('../partials/head.php');
                                                                     <div class="row">
                                                                         <div class="form-group col-md-6">
                                                                             <label for="">Old password</label>
-                                                                            <input type="password" required name="old-password" class="form-control">
+                                                                            <input type="password" required name="old_password" class="form-control">
                                                                         </div>
                                                                         <div class="form-group col-md-6">
                                                                             <label for="">New password</label>
-                                                                            <input type="password" required name="new_password" class="form-control">
+                                                                            <input type="password" required name="new_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters" class="form-control">
                                                                         </div>
-                                                                        <div class="form-group col-md-6">
+                                                                        <div class="form-group col-md-12">
                                                                             <label for="">Confirm password</label>
-                                                                            <input type="password" required name="confirm_password" class="form-control">
+                                                                            <input type="password" required name="confirm_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters" class="form-control">
                                                                         </div>
                                                                     </div>
                                                                     <div class="text-right">

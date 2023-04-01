@@ -22,7 +22,7 @@ require_once('../partials/head.php');
 
                 <form method="post">
                     <div class="input-group mb-3">
-                        <input type="password" required class="form-control" name="new_password" placeholder="New Password">
+                        <input type="password" required class="form-control" name="new_password" placeholder="New Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -30,7 +30,7 @@ require_once('../partials/head.php');
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" required class="form-control" name="confirm_password" placeholder="Confirm Password">
+                        <input type="password" required class="form-control" name="confirm_password" placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
