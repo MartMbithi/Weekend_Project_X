@@ -69,7 +69,7 @@ require_once('../partials/head.php');
                                                 <input type="text" required name="start_date" class="form-control filter_dp">
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="">Date Paid(Ksh)</label>
+                                                <label for="">To date</label>
                                                 <input type="text" required name="end_date" class="form-control filter_dp">
                                             </div>
                                         </div>
@@ -96,12 +96,13 @@ require_once('../partials/head.php');
                                         </h5>
                                     </div>
                                     <div class="card-body">
-                                        <table class="table data_table table-striped">
+                                        <table class="table table-striped export_dt">
                                             <thead>
                                                 <tr>
                                                     <th>Ref Code</th>
                                                     <th>Inv Number</th>
                                                     <th>Amount</th>
+                                                    <th>Payment Means</th>
                                                     <th>Paid By</th>
                                                     <th>Paid On</th>
                                                     <th>House Number</th>
@@ -128,6 +129,7 @@ require_once('../partials/head.php');
                                                             </td>
                                                             <td><?php echo $payments['payment_invoice_number']; ?></td>
                                                             <td>Ksh <?php echo number_format($payments['payment_amount'], 2); ?></td>
+                                                            <td><?php echo $payments['payment_type']; ?></td>
                                                             <td><?php echo $payments['tenant_name']; ?></td>
                                                             <td><?php echo date('d M Y', strtotime($payments['payment_date'])); ?></td>
                                                             <td><?php echo $payments['house_number']; ?></td>
@@ -151,12 +153,13 @@ require_once('../partials/head.php');
                                         </h5>
                                     </div>
                                     <div class="card-body">
-                                        <table class="table data_table table-striped">
+                                        <table class="table table-striped export_dt">
                                             <thead>
                                                 <tr>
                                                     <th>Ref Code</th>
                                                     <th>Inv Number</th>
                                                     <th>Amount</th>
+                                                    <th>Payment Means</th>
                                                     <th>Paid By</th>
                                                     <th>Paid On</th>
                                                     <th>House Number</th>
@@ -182,6 +185,7 @@ require_once('../partials/head.php');
                                                             </td>
                                                             <td><?php echo $payments['payment_invoice_number']; ?></td>
                                                             <td>Ksh <?php echo number_format($payments['payment_amount'], 2); ?></td>
+                                                            <td><?php echo $payments['payment_type']; ?></td>
                                                             <td><?php echo $payments['tenant_name']; ?></td>
                                                             <td><?php echo date('d M Y', strtotime($payments['payment_date'])); ?></td>
                                                             <td><?php echo $payments['house_number']; ?></td>

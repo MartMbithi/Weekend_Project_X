@@ -39,6 +39,8 @@
     <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/daterangepicker/daterangepicker.css">
     <!-- Date picker -->
     <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/datepicker/css/bootstrap-datepicker.css">
+    <!-- Data tables Buttons -->
+    <link rel="stylesheet" href="<?php echo $base_dir; ?>../public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <?php
     /* Alert Sesion Via Alerts */
     if (isset($_SESSION['success'])) {
@@ -51,5 +53,5 @@
         unset($_SESSION['err']);
     }
     ?>
-    
+
 </head>

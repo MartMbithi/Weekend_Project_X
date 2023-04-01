@@ -31,7 +31,13 @@
 <script src="<?php echo $base_dir; ?>../public/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="<?php echo $base_dir; ?>../public/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?php echo $base_dir; ?>../public/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-
+<script src="<?php echo $base_dir; ?>../public/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="<?php echo $base_dir; ?>../public/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="<?php echo $base_dir; ?>../public/plugins/jszip/jszip.min.js"></script>
+<script src="<?php echo $base_dir; ?>../public/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="<?php echo $base_dir; ?>../public/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="<?php echo $base_dir; ?>../public/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="<?php echo $base_dir; ?>../public/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <!-- Load alerts -->
 <?php if (isset($success)) { ?>
     <!-- Pop Success Alert -->
@@ -121,5 +127,12 @@ require_once('../modals/logout.php'); ?>
     }
 
     /* Export data tables */
-   
+    $(document).ready(function() {
+        $('.export_dt').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+    });
 </script>
