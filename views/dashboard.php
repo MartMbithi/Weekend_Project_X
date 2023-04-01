@@ -170,6 +170,38 @@ require_once('../partials/head.php');
                                 <!-- /.info-box -->
                             </a>
                         </div>
+                        <div class="col-12 col-sm-6 col-md-6">
+                            <a href="payments" class="text-dark">
+                                <div class="info-box card-outline card-success">
+                                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-hand-holding-usd"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Projected Revenue For <?php echo date('M, Y'); ?></span>
+                                        <span class="info-box-number">
+                                            Kes <?php echo number_format($projected_amount, 2); ?>
+                                        </span>
+                                    </div>
+                                    <!-- /.info-box-content -->
+                                </div>
+                                <!-- /.info-box -->
+                            </a>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-6">
+                            <a href="expenses" class="text-dark">
+                                <div class="info-box card-outline card-success">
+                                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-funnel-dollar"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Received Revenue For <?php echo date('M, Y'); ?></span>
+                                        <span class="info-box-number">
+                                            <?php echo date('d/m/Y', strtotime($todays_date)); ?>
+                                            Kes <?php echo number_format($expense_amount, 2); ?>
+                                        </span>
+                                    </div>
+                                    <!-- /.info-box-content -->
+                                </div>
+                                <!-- /.info-box -->
+                            </a>
+                        </div>
                     </div>
 
                     <div class="row">

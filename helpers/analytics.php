@@ -69,3 +69,29 @@ $stmt->fetch();
 $stmt->close();
 
 
+/* Compute Projected Amounts 
+Logic 
+ Get sum of all amount of all occupied houses
+ Compare with the paid amount on that duration
+*/
+
+/* Projected amount */
+$query = "SELECT SUM(house_rent) FROM houses WHERE house_status = 'occupied'";
+$stmt = $mysqli->prepare($query);
+$stmt->execute();
+$stmt->bind_result($projected_amount);
+$stmt->fetch();
+$stmt->close();
+
+/* Get 30 days before today */
+$todays_date = date('d/m/y', strtotime(time()));
+$start_date = strtotime("+1 month", time());
+
+
+/* Received payment */
+$query = "SELECT SUM(payment_amount) FROM payments WHERE payment_date BETWEEN '{$start_date}' AND '{$todays_date}'";
+$stmt = $mysqli->prepare($query);
+$stmt->execute();
+$stmt->bind_result($payment_amount);
+$stmt->fetch();
+$stmt->close();
