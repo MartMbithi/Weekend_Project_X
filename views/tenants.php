@@ -43,7 +43,7 @@ require_once('../partials/head.php');
             <div class="content">
                 <div class="container">
                     <div class="text-right">
-                        <a href="export?module=tenants" class="btn btn-outline-success">
+                        <a href="export?module=Tenant" class="btn btn-outline-success">
                             Export
                         </a>
                         <button type="button" data-toggle="modal" data-target="#add_modal" class="btn btn-outline-success">
