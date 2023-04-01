@@ -10,4 +10,13 @@ require_once('../config/checklogin.php');
 
 $module = mysqli_real_escape_string($mysqli, $_GET['module']);
 
- /* Export  */
+/* Export  */
+if ($module == 'Tenant') {
+    /* Generate Tenant Details On CSV File */
+    
+} else if ($module == 'Houses') {
+    /* Generate Houses List On CSV */
+} else {
+    /* Die */
+    header("Location: logout");
+}
