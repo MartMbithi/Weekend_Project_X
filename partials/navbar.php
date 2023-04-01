@@ -38,8 +38,6 @@
                         Reports
                     </a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                        <li><a href="reports_houses" class="dropdown-item">Houses</a></li>
-                        <li><a href="reports_tenants" class="dropdown-item">Tenants</a></li>
                         <li><a href="reports_payments" class="dropdown-item">Payments</a></li>
                         <li><a href="reports_expenses" class="dropdown-item">Expenses summary</a></li>
                     </ul>
