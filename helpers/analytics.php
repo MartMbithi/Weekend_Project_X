@@ -84,11 +84,12 @@ $stmt->fetch();
 $stmt->close();
 
 /* Get 30 days before today */
-$start_date = date('Y-m-d', strtotime('-1 month'));
+$start_date = date('d/m/Y', strtotime('-30 days'));
+$end_date = date('d/m/Y', strtotime($start_date . ' + 30 days'));
 
 
 /* Received payment */
-$query = "SELECT SUM(payment_amount) FROM payments WHERE payment_date BETWEEN '{$start_date}' AND '{$todays_date}'";
+$query = "SELECT SUM(payment_amount) FROM payments WHERE payment_date BETWEEN '{$start_date}' AND '{$end_date}'";
 $stmt = $mysqli->prepare($query);
 $stmt->execute();
 $stmt->bind_result($payment_amount);
