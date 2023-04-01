@@ -85,6 +85,11 @@ require_once('../modals/logout.php'); ?>
         startDate: '-7d'
     });
 
+    /* Filter DP */
+    $('.filter_dp').datepicker({
+        format: 'mm/dd/yyyy'
+    });
+
     function GetHouseDetails(val) {
         $.ajax({
             //get account rates
@@ -114,4 +119,7 @@ require_once('../modals/logout.php'); ?>
         window.print();
         $('body').html(restorepage);
     }
+
+    /* Export data tables */
+   
 </script>
