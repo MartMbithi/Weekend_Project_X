@@ -7,7 +7,7 @@
 session_start();
 require_once('../config/config.php');
 require_once('../config/checklogin.php');
-require_once('../helpers/tenants.php');
+require_once('../helpers/profile.php');
 require_once('../partials/head.php');
 ?>
 
@@ -80,7 +80,7 @@ require_once('../partials/head.php');
                                             <div class="row">
                                                 <div class="col-3 col-sm-3">
                                                     <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
-                                                        <a class="nav-link active" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-home" role="tab" aria-controls="vert-tabs-home" aria-selected="true">Edit Personal details</a>
+                                                        <a class="nav-link active" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-home" role="tab" aria-controls="vert-tabs-home" aria-selected="true">Edit personal details</a>
                                                         <a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Change password</a>
                                                     </div>
                                                 </div>
@@ -90,15 +90,47 @@ require_once('../partials/head.php');
                                                             <div class="card-header">
                                                                 <h3 class="card-title">Edit personal details</h3>
                                                             </div>
-
+                                                            <form class="needs-validation" method="post" enctype="multipart/form-data" role="form">
+                                                                <div class="row">
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="">Full names</label>
+                                                                        <input type="text" required name="user_names" value="<?php echo $user['user_names']; ?>" class="form-control">
+                                                                    </div>
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="">Login username</label>
+                                                                        <input type="text" required name="user_login_name" value="<?php echo $user['user_login_name']; ?>" class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="text-right">
+                                                                    <button type="submit" name="Update_Personal_Details" class="btn btn-outline-success">Save</button>
+                                                                </div>
+                                                            </form>
                                                             <!-- /.card-body -->
                                                         </div>
                                                         <div class="tab-pane fade" id="vert-tabs-profile" role="tabpanel" aria-labelledby="vert-tabs-profile-tab">
                                                             <div class="card-header">
-                                                                <h3 class="card-title">Update details</h3>
+                                                                <h3 class="card-title">Change login details</h3>
                                                             </div>
                                                             <div class="card-body">
-
+                                                                <form class="needs-validation" method="post" enctype="multipart/form-data" role="form">
+                                                                    <div class="row">
+                                                                        <div class="form-group col-md-6">
+                                                                            <label for="">Old password</label>
+                                                                            <input type="password" required name="old-password" class="form-control">
+                                                                        </div>
+                                                                        <div class="form-group col-md-6">
+                                                                            <label for="">New password</label>
+                                                                            <input type="password" required name="new_password" class="form-control">
+                                                                        </div>
+                                                                        <div class="form-group col-md-6">
+                                                                            <label for="">Confirm password</label>
+                                                                            <input type="password" required name="confirm_password" class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="text-right">
+                                                                        <button type="submit" name="Update_Personal_Password" class="btn btn-outline-success">Save</button>
+                                                                    </div>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
