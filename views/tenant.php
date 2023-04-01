@@ -149,7 +149,7 @@ require_once('../partials/head.php');
                                                                                     <td><?php echo $payments['payment_ref_code']; ?></td>
                                                                                     <td><?php echo $payments['payment_invoice_number']; ?></td>
                                                                                     <td>Ksh <?php echo number_format($payments['payment_amount'], 2); ?></td>
-                                                                                    <td><?php echo date('d M Y g:ia', strtotime($payments['payment_date'])); ?></td>
+                                                                                    <td><?php echo date('d M Y', strtotime($payments['payment_date'])); ?></td>
                                                                                     <td><?php echo $payments['house_number']; ?></td>
                                                                                 </tr>
                                                                         <?php }

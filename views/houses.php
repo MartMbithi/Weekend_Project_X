@@ -42,7 +42,10 @@ require_once('../partials/head.php');
             <!-- Main content -->
             <div class="content">
                 <div class="container">
-                    <div class="d-flex flex-row-reverse bd-highlight">
+                    <div class="text-right">
+                        <a href="export?module=Houses" class="btn btn-outline-success">
+                            Export
+                        </a>
                         <button type="button" data-toggle="modal" data-target="#add_modal" class="btn btn-outline-success">
                             Add house
                         </button>
