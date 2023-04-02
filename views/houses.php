@@ -149,7 +149,9 @@ require_once('../partials/head.php');
                                                         <td>Ksh <?php echo number_format($houses['house_rent'], 2); ?></td>
                                                         <td>
                                                             <a data-toggle="modal" href="#update_<?php echo $houses['house_id']; ?>" class="badge badge-primary"><i class="fas fa-edit"></i> Edit</a>
-                                                            <a data-toggle="modal" href="#delete_<?php echo $houses['house_id']; ?>" class="badge badge-danger"><i class="fas fa-trash"></i> Delete</a>
+                                                            <?php if ($_SESSION['user_type'] == 'Administrator') { ?>
+                                                                <a data-toggle="modal" href="#delete_<?php echo $houses['house_id']; ?>" class="badge badge-danger"><i class="fas fa-trash"></i> Delete</a>
+                                                            <?php } ?>
                                                         </td>
                                                     </tr>
                                             <?php

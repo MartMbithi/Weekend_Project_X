@@ -114,7 +114,9 @@ require_once('../partials/head.php');
                                                         <td>
                                                             <a data-toggle="modal" href="#add_<?php echo $properties['property_id']; ?>" class="badge badge-success"><i class="fas fa-plus"></i> Add house</a>
                                                             <a data-toggle="modal" href="#update_<?php echo $properties['property_id']; ?>" class="badge badge-primary"><i class="fas fa-edit"></i> Edit</a>
-                                                            <a data-toggle="modal" href="#delete_<?php echo $properties['property_id']; ?>" class="badge badge-danger"><i class="fas fa-trash"></i> Delete</a>
+                                                            <?php if ($_SESSION['user_type'] == 'Administrator') { ?>
+                                                                <a data-toggle="modal" href="#delete_<?php echo $properties['property_id']; ?>" class="badge badge-danger"><i class="fas fa-trash"></i> Delete</a>
+                                                            <?php } ?>
                                                         </td>
                                                     </tr>
                                             <?php
