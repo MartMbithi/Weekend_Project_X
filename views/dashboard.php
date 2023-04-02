@@ -190,7 +190,7 @@ require_once('../partials/head.php');
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-6">
-                            <a href="expenses" class="text-dark">
+                            <a href="payments" class="text-dark">
                                 <div class="info-box card-outline card-success">
                                     <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-wallet"></i></span>
                                     <div class="info-box-content">
