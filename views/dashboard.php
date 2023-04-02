@@ -45,58 +45,57 @@ require_once('../partials/head.php');
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <a href="properties" class="text-dark">
-                                <div class="info-box card-outline card-success">
-                                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-hotel"></i></span>
-                                    <div class="info-box-content">
-                                        <span class="info-box-text">Properties</span>
-                                        <span class="info-box-number">
-                                            <?php echo $properties; ?>
-                                        </span>
+                        <?php if ($_SESSION['user_type'] == 'Administrator') { ?>
+                            <div class="col-12 col-sm-6 col-md-3">
+                                <a href="properties" class="text-dark">
+                                    <div class="info-box card-outline card-success">
+                                        <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-hotel"></i></span>
+                                        <div class="info-box-content">
+                                            <span class="info-box-text">Properties</span>
+                                            <span class="info-box-number">
+                                                <?php echo $properties; ?>
+                                            </span>
+                                        </div>
+                                        <!-- /.info-box-content -->
                                     </div>
-                                    <!-- /.info-box-content -->
-                                </div>
-                                <!-- /.info-box -->
-                            </a>
-                        </div>
+                                    <!-- /.info-box -->
+                                </a>
+                            </div>
 
 
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <a href="houses" class="text-dark">
-                                <div class="info-box card-outline card-success">
-                                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-home"></i></span>
-                                    <div class="info-box-content">
-                                        <span class="info-box-text">Houses</span>
-                                        <span class="info-box-number">
-                                            <?php echo $houses; ?>
-                                        </span>
+                            <div class="col-12 col-sm-6 col-md-3">
+                                <a href="houses" class="text-dark">
+                                    <div class="info-box card-outline card-success">
+                                        <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-home"></i></span>
+                                        <div class="info-box-content">
+                                            <span class="info-box-text">Houses</span>
+                                            <span class="info-box-number">
+                                                <?php echo $houses; ?>
+                                            </span>
+                                        </div>
+                                        <!-- /.info-box-content -->
                                     </div>
-                                    <!-- /.info-box-content -->
-                                </div>
-                                <!-- /.info-box -->
-                            </a>
-                        </div>
+                                    <!-- /.info-box -->
+                                </a>
+                            </div>
 
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <a href="tenants" class="text-dark">
-                                <div class="info-box card-outline card-success">
-                                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-users"></i></span>
-                                    <div class="info-box-content">
-                                        <span class="info-box-text">Tenants</span>
-                                        <span class="info-box-number">
-                                            <?php echo $tenants; ?>
-                                        </span>
+                            <div class="col-12 col-sm-6 col-md-3">
+                                <a href="tenants" class="text-dark">
+                                    <div class="info-box card-outline card-success">
+                                        <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-users"></i></span>
+                                        <div class="info-box-content">
+                                            <span class="info-box-text">Tenants</span>
+                                            <span class="info-box-number">
+                                                <?php echo $tenants; ?>
+                                            </span>
+                                        </div>
+                                        <!-- /.info-box-content -->
                                     </div>
-                                    <!-- /.info-box-content -->
-                                </div>
-                                <!-- /.info-box -->
-                            </a>
-                        </div>
+                                    <!-- /.info-box -->
+                                </a>
+                            </div>
 
-                        <?php
-                        if ($_SESSION['user_type'] == 'Administrator') {
-                        ?>
+
                             <div class="col-12 col-sm-6 col-md-3">
                                 <a href="users" class="text-dark">
                                     <div class="info-box card-outline card-success">
@@ -112,7 +111,58 @@ require_once('../partials/head.php');
                                     <!-- /.info-box -->
                                 </a>
                             </div>
+                        <?php } else { ?>
+                            <div class="col-12 col-sm-6 col-md-4">
+                                <a href="properties" class="text-dark">
+                                    <div class="info-box card-outline card-success">
+                                        <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-hotel"></i></span>
+                                        <div class="info-box-content">
+                                            <span class="info-box-text">Properties</span>
+                                            <span class="info-box-number">
+                                                <?php echo $properties; ?>
+                                            </span>
+                                        </div>
+                                        <!-- /.info-box-content -->
+                                    </div>
+                                    <!-- /.info-box -->
+                                </a>
+                            </div>
+
+
+
+                            <div class="col-12 col-sm-6 col-md-4">
+                                <a href="houses" class="text-dark">
+                                    <div class="info-box card-outline card-success">
+                                        <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-home"></i></span>
+                                        <div class="info-box-content">
+                                            <span class="info-box-text">Houses</span>
+                                            <span class="info-box-number">
+                                                <?php echo $houses; ?>
+                                            </span>
+                                        </div>
+                                        <!-- /.info-box-content -->
+                                    </div>
+                                    <!-- /.info-box -->
+                                </a>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-4">
+                                <a href="tenants" class="text-dark">
+                                    <div class="info-box card-outline card-success">
+                                        <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-users"></i></span>
+                                        <div class="info-box-content">
+                                            <span class="info-box-text">Tenants</span>
+                                            <span class="info-box-number">
+                                                <?php echo $tenants; ?>
+                                            </span>
+                                        </div>
+                                        <!-- /.info-box-content -->
+                                    </div>
+                                    <!-- /.info-box -->
+                                </a>
+                            </div>
                         <?php } ?>
+
 
                         <div class="col-12 col-sm-6 col-md-3">
                             <a href="houses" class="text-dark">
