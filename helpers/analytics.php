@@ -84,8 +84,8 @@ $stmt->fetch();
 $stmt->close();
 
 /* Get 30 days before today */
-$start_date = date('01/m/Y', strtotime('-1 month'));
-$end_date = date('01/m/Y', strtotime($start_date . '+3 month'));
+$start_date = date('m/01/Y', strtotime('-1 month'));
+$end_date = date('m/01/Y', strtotime($start_date . '+3 month'));
 
 
 /* Received payment */
