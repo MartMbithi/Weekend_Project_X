@@ -169,11 +169,7 @@ require_once('../partials/head.php');
                         </div>
                         <!-- Main Footer -->
                         <?php
-                        $i = 0;
-                        while ($i <= 4) {
-                            echo "<br>";
-                            $i++;
-                        }
+                        include('../partials/content_breaker.php');
                         require_once('../partials/footer.php');
                         ?>
                     </div>

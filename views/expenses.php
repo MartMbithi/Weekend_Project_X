@@ -148,11 +148,7 @@ require_once('../partials/head.php');
 
                 <!-- Main Footer -->
                 <?php
-                $i = 0;
-                while ($i <= 4) {
-                    echo "<br>";
-                    $i++;
-                }
+                include('../partials/content_breaker.php');
                 require_once('../partials/footer.php');
                 ?>
             </div>
@@ -160,54 +156,6 @@ require_once('../partials/head.php');
         </div>
         <!-- Scripts -->
         <?php require_once('../partials/scripts.php'); ?>
-        <script>
-            $(document).ready(function() {
-
-                /*  Get Directories  */
-                $("#TenantDetails").change(function() {
-                    var tenant_id = $(this).val();
-
-                    $.ajax({
-                        url: 'get_payment_details.php',
-                        type: 'post',
-                        data: {
-                            tenants: tenant_id
-                        },
-                        dataType: 'json',
-                        success: function(response) {
-                            var len = response.length;
-                            $("#IDNumber").empty();
-                            $("#TenantContacts").empty();
-                            $("#HouseNumber").empty();
-                            $("#HouseCategory").empty();
-                            $("#HouseRent").empty();
-                            $("#PropertyName").empty();
-                            $("#PropertyLocation").empty();
-
-                            for (var i = 0; i < len; i++) {
-                                var tenant_national_id = response[i]['tenant_national_id'];
-                                var tenant_mobile_number = response[i]['tenant_mobile_number'];
-                                var house_number = response[i]['house_number'];
-                                var house_category = response[i]['house_category'];
-                                var house_rent = response[i]['house_rent'];
-                                var property_name = response[i]['property_name'];
-                                var property_location = response[i]['property_location'];
-
-                                /* Pre Populate Items */
-                                $("#IDNumber").append("<span>" + tenant_national_id + "</span>");
-                                $("#TenantContacts").append("<span>" + tenant_mobile_number + "</span>");
-                                $("#HouseNumber").append("<span>" + house_number + "</span>");
-                                $("#HouseCategory").append("<span>" + house_category + "</span>");
-                                $("#HouseRent").append("<span>" + house_rent + "</span>");
-                                $("#PropertyName").append("<span>" + property_name + "</span>");
-                                $("#PropertyLocation").append("<span>" + property_location + "</span>");
-                            }
-                        }
-                    });
-                });
-            });
-        </script>
-
     </div>
 </body>
 

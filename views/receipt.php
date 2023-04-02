@@ -94,21 +94,21 @@ require_once('../partials/head.php');
                                                 <!-- Table row -->
                                                 <div class="row">
                                                     <div class="col-12 table-responsive">
-                                                        <table class="table table-striped text-right">
+                                                        <table class="table table-striped">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>Qty</th>
-                                                                    <th>Product</th>
-                                                                    <th>Description</th>
-                                                                    <th>Subtotal</th>
+                                                                    <th class="text-center">Qty</th>
+                                                                    <th class="text-center">Product</th>
+                                                                    <th class="text-center">Description</th>
+                                                                    <th class="text-right">Subtotal</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
-                                                                    <td>1</td>
-                                                                    <td>House rent</td>
-                                                                    <td>Rent payment for house number <?php echo $payments['house_number']; ?></td>
-                                                                    <td>Ksh <?php echo number_format($payments['payment_amount'], 2); ?></td>
+                                                                    <td class="text-center">1</td>
+                                                                    <td class="text-center">House rent</td>
+                                                                    <td class="text-center">Rent payment for house number <?php echo $payments['house_number']; ?></td>
+                                                                    <td class="text-right">Ksh <?php echo number_format($payments['payment_amount'], 2); ?></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -158,14 +158,10 @@ require_once('../partials/head.php');
                             </div>
                         </div>
                     </div>
+                    <?php include('../partials/content_breaker.php'); ?>
                 </div>
                 <!-- Main Footer -->
         <?php
-                $i = 0;
-                while ($i <= 4) {
-                    echo "<br>";
-                    $i++;
-                }
                 require_once('../partials/footer.php');
             }
         } ?>
