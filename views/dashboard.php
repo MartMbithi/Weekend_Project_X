@@ -94,21 +94,25 @@ require_once('../partials/head.php');
                             </a>
                         </div>
 
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <a href="users" class="text-dark">
-                                <div class="info-box card-outline card-success">
-                                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-user-tie"></i></span>
-                                    <div class="info-box-content">
-                                        <span class="info-box-text">System Users</span>
-                                        <span class="info-box-number">
-                                            <?php echo $users; ?>
-                                        </span>
+                        <?php
+                        if ($_SESSION['user_type'] == 'Administrator') {
+                        ?>
+                            <div class="col-12 col-sm-6 col-md-3">
+                                <a href="users" class="text-dark">
+                                    <div class="info-box card-outline card-success">
+                                        <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-user-tie"></i></span>
+                                        <div class="info-box-content">
+                                            <span class="info-box-text">System Users</span>
+                                            <span class="info-box-number">
+                                                <?php echo $users; ?>
+                                            </span>
+                                        </div>
+                                        <!-- /.info-box-content -->
                                     </div>
-                                    <!-- /.info-box-content -->
-                                </div>
-                                <!-- /.info-box -->
-                            </a>
-                        </div>
+                                    <!-- /.info-box -->
+                                </a>
+                            </div>
+                        <?php } ?>
 
                         <div class="col-12 col-sm-6 col-md-3">
                             <a href="houses" class="text-dark">
