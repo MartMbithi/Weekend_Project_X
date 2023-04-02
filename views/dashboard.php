@@ -362,7 +362,7 @@ require_once('../partials/head.php');
                                                         <td>Ksh <?php echo number_format($expenses['expense_amount'], 2); ?></td>
                                                         <td><?php echo $expenses['user_names']; ?></td>
                                                         <td><?php echo $expenses['expense_type']; ?></td>
-                                                        <td><?php echo date('d M Y g:ia', strtotime($expenses['expense_date'])); ?></td>
+                                                        <td><?php echo date('d M Y', strtotime($expenses['expense_date'])); ?></td>
                                                     </tr>
                                             <?php }
                                             } ?>
