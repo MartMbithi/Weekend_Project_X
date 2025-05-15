@@ -73,17 +73,6 @@ require_once('../partials/head.php');
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label for="">Property caretaker</label>
-                                                <?php
-                                                $users_sql = mysqli_query(
-                                                    $mysqli,
-                                                    "SELECT * FROM users WHERE user_type = 'Caretaker'"
-                                                );
-                                                if (mysqli_num_rows($users_sql) > 0) {
-                                                    while ($users = mysqli_fetch_array($users_sql)) {
-                                                ?>
-
-                                                <?php }
-                                                } ?>
                                                 <select type="text" required name="property_caretaker_id" class="form-control select2bs4">
                                                     <option>Select caretaker</option>
                                                     <?php
