@@ -122,6 +122,7 @@ require_once('../partials/head.php');
                                                 <th>S/no</th>
                                                 <th>Property Name</th>
                                                 <th>Property Location</th>
+                                                <th>Caretaker</th>
                                                 <th>Manage</th>
                                             </tr>
                                         </thead>
@@ -129,7 +130,8 @@ require_once('../partials/head.php');
                                             <?php
                                             $property_sql = mysqli_query(
                                                 $mysqli,
-                                                "SELECT * FROM properties "
+                                                "SELECT * FROM properties p
+                                                INNER JOIN users u ON u.user_id = p.property_caretaker_id"
                                             );
                                             if (mysqli_num_rows($property_sql) > 0) {
                                                 $cnt = 1;
@@ -139,6 +141,7 @@ require_once('../partials/head.php');
                                                         <td><?php echo $cnt; ?></td>
                                                         <td><?php echo $properties['property_name']; ?></td>
                                                         <td><?php echo $properties['property_location']; ?></td>
+                                                        <td><?php echo $properties['user_names']; ?></td>
                                                         <td>
                                                             <a data-toggle="modal" href="#add_<?php echo $properties['property_id']; ?>" class="badge badge-success"><i class="fas fa-plus"></i> Add house</a>
                                                             <a data-toggle="modal" href="#update_<?php echo $properties['property_id']; ?>" class="badge badge-primary"><i class="fas fa-edit"></i> Edit</a>
