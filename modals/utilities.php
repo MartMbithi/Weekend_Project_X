@@ -38,3 +38,22 @@
         </div>
     </div>
 </div>
+
+<!-- Delete Modal -->
+<div class="modal fade" id="delete_<?php echo $utilities['utility_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form method="POST">
+                <div class="modal-body text-center text-danger">
+                    <img src='../public/img/bin.gif' height="120px">
+                    <h4>Delete <?php echo $utilities['user_names']; ?>?</h4>
+                    <br>
+                    <!-- Hide This -->
+                    <input type="hidden" name="utility_id" value="<?php echo $utilities['utility_id']; ?>">
+                    <button type="button" class="text-center btn btn-success" data-dismiss="modal">No</button>
+                    <button type="submit" name="Delete_Utility" class="text-center btn btn-danger">Yes, Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
