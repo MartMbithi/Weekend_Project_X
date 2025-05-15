@@ -71,6 +71,34 @@ require_once('../partials/head.php');
                                                 <label for="">Property location</label>
                                                 <input type="text" required name="property_location" class="form-control">
                                             </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="">Property caretaker</label>
+                                                <?php
+                                                $users_sql = mysqli_query(
+                                                    $mysqli,
+                                                    "SELECT * FROM users WHERE user_type = 'Caretaker'"
+                                                );
+                                                if (mysqli_num_rows($users_sql) > 0) {
+                                                    while ($users = mysqli_fetch_array($users_sql)) {
+                                                ?>
+
+                                                <?php }
+                                                } ?>
+                                                <select type="text" required name="property_caretaker_id" class="form-control select2bs4">
+                                                    <option>Select caretaker</option>
+                                                    <?php
+                                                    $users_sql = mysqli_query(
+                                                        $mysqli,
+                                                        "SELECT * FROM users WHERE user_type = 'Caretaker'"
+                                                    );
+                                                    if (mysqli_num_rows($users_sql) > 0) {
+                                                        while ($users = mysqli_fetch_array($users_sql)) {
+                                                    ?>
+                                                            <option value="<?php echo $users['user_id']; ?>"><?php echo $users['user_names']; ?></option>
+                                                    <?php }
+                                                    } ?>
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="text-right">
                                             <button type="submit" name="Add_Property" class="btn btn-outline-success">Add</button>
