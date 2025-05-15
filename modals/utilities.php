@@ -14,7 +14,7 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="">Utilities name</label>
-                            <input type="text" required name="utility_id" value="<?php echo $utilities['utility_id']; ?>" class="form-control">
+                            <input type="hidden" required name="utility_id" value="<?php echo $utilities['utility_id']; ?>" class="form-control">
                             <input type="text" required name="utility_name" value="<?php echo $utilities['utility_name']; ?>" class="form-control">
                         </div>
                         <div class="form-group col-md-3">
@@ -46,7 +46,7 @@
             <form method="POST">
                 <div class="modal-body text-center text-danger">
                     <img src='../public/img/bin.gif' height="120px">
-                    <h4>Delete <?php echo $utilities['user_names']; ?>?</h4>
+                    <h4>Delete <?php echo $utilities['utility_name']; ?>?</h4>
                     <br>
                     <!-- Hide This -->
                     <input type="hidden" name="utility_id" value="<?php echo $utilities['utility_id']; ?>">

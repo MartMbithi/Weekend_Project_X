@@ -176,7 +176,7 @@ require_once('../partials/head.php');
                                             );
                                             if (mysqli_num_rows($utilities_sql) > 0) {
                                                 $cnt = 1;
-                                                while ($utilities = mysqli_fetch_array($property_sql)) {
+                                                while ($utilities = mysqli_fetch_array($utilities_sql)) {
                                                     if ($utilities['utility_status'] == 0) {
                                                         $utility_status = '<span class="badge badge-success">Active</span>';
                                                     } else {
