@@ -83,6 +83,36 @@ if (isset($_POST['Add_Utility'])) {
     }
 }
 
- /* Update Utility */
+/* Update Utility */
+if (isset($_POST['Update_Utility'])) {
+    $utility_id = mysqli_real_escape_string($mysqli, $_POST['utility_id']);
+    $utility_name = mysqli_real_escape_string($mysqli, $_POST['utility_name']);
+    $utility_cost = mysqli_real_escape_string($mysqli, $_POST['utility_cost']);
+    $utility_status = mysqli_real_escape_string($mysqli, $_POST['utility_status']);
 
- /* Delete Utility */
+    /* Persist */
+    if (mysqli_query(
+        $mysqli,
+        "UPDATE utilities SET utility_name = '{$utility_name}', utility_cost = '{$utility_cost}', utility_status = '{$utility_status}' 
+        WHERE utility_id = '{$utility_id}'"
+    )) {
+        $success = "Utility updated successfully";
+    } else {
+        $err = "Something went wrong, please try again";
+    }
+}
+
+/* Delete Utility */
+if (isset($_POST['Delete_Utility'])) {
+    $utility_id = mysqli_real_escape_string($mysqli, $_POST['utility_id']);
+
+    /* Persist */
+    if (mysqli_query(
+        $mysqli,
+        "DELETE FROM utilities WHERE utility_id = '{$utility_id}'"
+    )) {
+        $success = "Utility deleted successfully";
+    } else {
+        $err = "Something went wrong, please try again";
+    }
+}
