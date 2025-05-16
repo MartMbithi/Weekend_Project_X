@@ -124,9 +124,13 @@ require_once('../partials/head.php');
                                 <div class="modal-body">
                                     <form class="needs-validation" method="post" enctype="multipart/form-data" role="form">
                                         <div class="row">
-                                            <div class="form-group col-md-8">
+                                            <div class="form-group col-md-4">
                                                 <label for="">Full names</label>
                                                 <input type="text" required name="user_names" class="form-control">
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="">Contact details</label>
+                                                <input type="text" placeholder="+254712345678" required name="user_contact" class="form-control">
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="">Access level</label>
@@ -167,6 +171,7 @@ require_once('../partials/head.php');
                                                 <th>Names</th>
                                                 <th>Access level</th>
                                                 <th>Login username</th>
+                                                <th>Contacts</th>
                                                 <th>Manage</th>
                                             </tr>
                                         </thead>
@@ -187,6 +192,7 @@ require_once('../partials/head.php');
                                                         </td>
                                                         <td><?php echo $users['user_type']; ?></td>
                                                         <td><?php echo $users['user_login_name']; ?></td>
+                                                        <td><?php echo $users['user_contact']; ?></td>
                                                         <td>
                                                             <a data-toggle="modal" href="#update_<?php echo $users['user_id']; ?>" class="badge badge-primary"><i class="fas fa-edit"></i> Edit</a>
                                                             <a data-toggle="modal" href="#password_<?php echo $users['user_id']; ?>" class="badge badge-warning"><i class="fas fa-lock"></i> Edit password</a>
