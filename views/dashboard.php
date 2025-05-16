@@ -341,9 +341,11 @@ require_once('../partials/head.php');
                                     <table class="table data_table table-striped">
                                         <thead>
                                             <tr>
+                                                <th>S/no</th>
+                                                <th>Expense Type</th>
+                                                <th>Property</th>
                                                 <th>Amount</th>
                                                 <th>Posted By</th>
-                                                <th>Type</th>
                                                 <th>Date Posted</th>
                                             </tr>
                                         </thead>
@@ -353,18 +355,31 @@ require_once('../partials/head.php');
                                                 $mysqli,
                                                 "SELECT * FROM expenses e
                                                 INNER JOIN users u ON u.user_id = e.expense_user_id
+                                                INNER JOIN properties p ON p.property_id = e.expense_property_id
                                                 ORDER BY expense_id ASC"
                                             );
                                             if (mysqli_num_rows($expenses_sql) > 0) {
+                                                $cnt = 1;
                                                 while ($expenses = mysqli_fetch_array($expenses_sql)) {
+                                                    if (!empty($expenses['expense_house_number'])) {
+                                                        $property = $expenses['property_name'] . ' - House Number' . $expenses['expense_house_number'];
+                                                    } else {
+                                                        $property = $expenses['property_name'];
+                                                    }
                                             ?>
                                                     <tr>
+                                                        <td>
+                                                            <?php echo $cnt; ?>
+                                                        </td>
+                                                        <td><?php echo $expenses['expense_type']; ?></td>
+                                                        <td><?php echo $property; ?></td>
                                                         <td>Ksh <?php echo number_format($expenses['expense_amount'], 2); ?></td>
                                                         <td><?php echo $expenses['user_names']; ?></td>
-                                                        <td><?php echo $expenses['expense_type']; ?></td>
                                                         <td><?php echo date('d M Y', strtotime($expenses['expense_date'])); ?></td>
                                                     </tr>
-                                            <?php }
+                                            <?php
+                                                    $cnt = $cnt + 1;
+                                                }
                                             } ?>
                                         </tbody>
                                     </table>
