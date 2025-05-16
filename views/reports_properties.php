@@ -151,7 +151,10 @@ require_once('../partials/head.php');
                                                         <td><?php echo $cnt; ?></td>
                                                         <td><?php echo $properties['property_name']; ?></td>
                                                         <td><?php echo $properties['property_location']; ?></td>
-                                                        <td><?php echo $properties['user_names']; ?></td>
+                                                        <td>
+                                                            <?php echo $properties['user_names']; ?><br>
+                                                            <?php echo $properties['user_contact']; ?>
+                                                        </td>
                                                         <td><?php echo $vacant; ?></td>
                                                         <td><?php echo $occupied; ?></td>
                                                         <td><?php echo $vacant + $occupied; ?></td>
