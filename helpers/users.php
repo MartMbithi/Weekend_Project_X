@@ -11,6 +11,7 @@ if (isset($_POST['Add_Users'])) {
     $user_names = mysqli_real_escape_string($mysqli, $_POST['user_names']);
     $user_login_name = mysqli_real_escape_string($mysqli, $_POST['user_login_name']);
     $user_password = sha1(md5(mysqli_real_escape_string($mysqli, $_POST['user_password'])));
+    $user_contact = mysqli_real_escape_string($mysqli, $_POST['user_contact']);
 
     /* Prevent duplicates */
     $user_checker_sql = "SELECT * FROM users WHERE user_login_name = '{$user_login_name}'";
@@ -19,8 +20,8 @@ if (isset($_POST['Add_Users'])) {
         $err = "User with this login username already exists";
     } else {
         /* Add user */
-        $user_add_sql = "INSERT INTO users (user_type, user_names, user_login_name, user_password)
-        VALUES ('{$user_type}', '{$user_names}', '{$user_login_name}', '{$user_password}')";
+        $user_add_sql = "INSERT INTO users (user_type, user_names, user_login_name, user_password, user_contact)
+        VALUES ('{$user_type}', '{$user_names}', '{$user_login_name}', '{$user_password}', '{$user_contact}')";
         $res = mysqli_query($mysqli, $user_add_sql);
         if ($res) {
             $success = "User registered successfully";
@@ -36,9 +37,10 @@ if (isset($_POST['Update_Users'])) {
     $user_type = mysqli_real_escape_string($mysqli, $_POST['user_type']);
     $user_names = mysqli_real_escape_string($mysqli, $_POST['user_names']);
     $user_login_name = mysqli_real_escape_string($mysqli, $_POST['user_login_name']);
+    $user_contact = mysqli_real_escape_string($mysqli, $_POST['user_contact']);
 
     /* Update user */
-    $user_update_sql = "UPDATE users SET user_type = '{$user_type}', user_names = '{$user_names}', user_login_name = '{$user_login_name}' 
+    $user_update_sql = "UPDATE users SET user_type = '{$user_type}', user_names = '{$user_names}', user_login_name = '{$user_login_name}', user_contact = '{$user_contact}'
     WHERE user_id = '{$user_id}'";
     $res = mysqli_query($mysqli, $user_update_sql);
     if ($res) {
