@@ -148,7 +148,7 @@ require_once('../partials/head.php');
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="">House number (optional)</label>
-                                                <input type="text" name="expense_date" class="form-control">
+                                                <input type="text" name="expense_house_number" class="form-control">
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="">Expense amount (Ksh)</label>
