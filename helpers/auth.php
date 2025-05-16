@@ -23,9 +23,9 @@ if (isset($_POST['Login'])) {
             $_SESSION['success'] = 'Logged in successfully as Admin';
             header('Location: dashboard');
             exit;
-        } else if ($_SESSION['user_type'] == 'User') {
+        } else if ($_SESSION['user_type'] == 'Caretaker') {
             $_SESSION['success'] = 'Logged in successfully as User';
-            header('Location: dashboard');
+            header('Location: caretaker_dashboard');
             exit;
         } else {
             $info = "Something went wrong, please try again";
