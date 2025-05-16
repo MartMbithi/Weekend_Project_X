@@ -197,6 +197,7 @@ Logic
         $stmt->bind_result($tenants);
         $stmt->fetch();
         $stmt->close();
+        
     }
 } else {
     /* Tenant */
