@@ -25,11 +25,11 @@
                         <div class="form-group col-md-6">
                             <label for="">Access level</label>
                             <select type="text" required name="user_type" class="form-control select2bs4">
-                                <?php if ($users['user_type'] == 'User') : ?>
-                                    <option selected>User</option>
+                                <?php if ($users['user_type'] == 'Caretaker') : ?>
+                                    <option selected>Caretaker</option>
                                     <option>Administrator</option>
                                 <?php else : ?>
-                                    <option>User</option>
+                                    <option>Caretaker</option>
                                     <option selected>Administrator</option>
                                 <?php endif; ?>
                             </select>

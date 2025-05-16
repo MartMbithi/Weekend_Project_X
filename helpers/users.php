@@ -14,10 +14,10 @@ if (isset($_POST['Add_Users'])) {
     $user_contact = mysqli_real_escape_string($mysqli, $_POST['user_contact']);
 
     /* Prevent duplicates */
-    $user_checker_sql = "SELECT * FROM users WHERE user_login_name = '{$user_login_name}'";
+    $user_checker_sql = "SELECT * FROM users WHERE user_login_name = '{$user_login_name}' || user_contact = '{$user_contact}'";
     $res = mysqli_query($mysqli, $user_checker_sql);
     if (mysqli_num_rows($res) > 0) {
-        $err = "User with this login username already exists";
+        $err = "User with this login username or contact already exists";
     } else {
         /* Add user */
         $user_add_sql = "INSERT INTO users (user_type, user_names, user_login_name, user_password, user_contact)
