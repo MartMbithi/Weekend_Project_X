@@ -96,7 +96,7 @@ require_once('../partials/head.php');
                                         </h5>
                                     </div>
                                     <div class="card-body">
-                                        <table class="table data_table table-striped">
+                                        <table class="table  table-striped export_dt">
                                             <thead>
                                                 <tr>
                                                     <th>S/no</th>
@@ -156,7 +156,7 @@ require_once('../partials/head.php');
                                         </h5>
                                     </div>
                                     <div class="card-body">
-                                        <table class="table data_table table-striped">
+                                        <table class="table  table-striped export_dt">
                                             <thead>
                                                 <tr>
                                                     <th>S/no</th>
