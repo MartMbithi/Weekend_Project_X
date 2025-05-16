@@ -121,7 +121,7 @@ if (isset($_POST['Add_House'])) {
     $house_rent = mysqli_real_escape_string($mysqli, $_POST['house_rent']);
 
     /* Prevent double entries */
-    if (mysqli_num_rows(mysqli_query($mysqli, "SELECT * FROM houses WHERE house_number = '{$house_number}'")) > 0) {
+    if (mysqli_num_rows(mysqli_query($mysqli, "SELECT * FROM houses WHERE house_number = '{$house_number}' AND house_property_id = '{$house_property_id}'")) > 0) {
         $err = "House number already exists";
     } else {
         /* Persist */

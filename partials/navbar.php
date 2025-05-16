@@ -50,6 +50,7 @@ if ($access_level == 'Administrator') { ?>
                         </a>
                         <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                             <li><a href="reports_payments" class="dropdown-item">Payments</a></li>
+                            <li><a href="reports_properties" class="dropdown-item">Properties</a></li>
                             <li><a href="reports_expenses" class="dropdown-item">Expenses summary</a></li>
                         </ul>
                     </li>
