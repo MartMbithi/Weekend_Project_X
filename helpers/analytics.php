@@ -218,5 +218,5 @@ if ($_SESSION['user_type'] == 'Administrator') {
         $stmt->close();
     }
 } else {
-    /* Tenant */
+   
 }
