@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">Tenant mobile number</label>
-                            <input type="text" required name="tenant_mobile_number" class="form-control">
+                            <input type="text" required name="tenant_mobile_number" class="form-control" placeholder="+2547123456789" pattern="^\+254[0-9]{9}$">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">Tenant date registered</label>
