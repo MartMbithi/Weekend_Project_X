@@ -75,7 +75,7 @@ if ($access_level == 'Administrator') { ?>
 <?php } else if ($access_level == 'Caretaker') { ?>
     <nav class="main-header navbar navbar-expand-md navbar-light navbar-white sticky-top">
         <div class="container">
-            <a href="dashboard" class="navbar-brand">
+            <a href="caretaker_dashboard" class="navbar-brand">
                 <img src="../public/img/logo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Property Manager</span>
             </a>
@@ -88,10 +88,7 @@ if ($access_level == 'Administrator') { ?>
                 <!-- Left navbar links -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="dashboard" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="properties" class="nav-link">Properties</a>
+                        <a href="caretaker_dashboard" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
                         <a href="houses" class="nav-link">Houses</a>
@@ -100,19 +97,7 @@ if ($access_level == 'Administrator') { ?>
                         <a href="tenants" class="nav-link">Tenants</a>
                     </li>
                     <li class="nav-item">
-                        <a href="payments" class="nav-link">Payments</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="expenses" class="nav-link">Expenses</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
-                            Reports
-                        </a>
-                        <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                            <li><a href="reports_payments" class="dropdown-item">Payments</a></li>
-                            <li><a href="reports_expenses" class="dropdown-item">Expenses summary</a></li>
-                        </ul>
+                        <a href="payments" class="nav-link">Rent Payments</a>
                     </li>
                 </ul>
             </div>
