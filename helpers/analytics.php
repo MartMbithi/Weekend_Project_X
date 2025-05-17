@@ -132,11 +132,6 @@ if ($_SESSION['user_type'] == 'Administrator') {
     $stmt->close();
 
 
-    /* Compute Projected Amounts 
-Logic 
- Get sum of all amount of all occupied houses
- Compare with the paid amount on that duration
-*/
 
     /* Projected amount */
     $query = "SELECT SUM(house_rent) FROM houses WHERE house_status = 'occupied'";
@@ -165,6 +160,7 @@ Logic
     );
     while ($properties = mysqli_fetch_array($property_sql)) {
         /* Caretaker Analytics */
+
         /* All Houses */
         $query = "SELECT COUNT(*) FROM houses WHERE house_property_id = '{$properties['property_id']}'";
         $stmt = $mysqli->prepare($query);
@@ -191,13 +187,35 @@ Logic
 
 
         /* Tenants */
-        $query = "SELECT COUNT(*) FROM tenants t INNER JOIN houses h on h.house_tenant = t.tenant_id WHERE h.house_property_id = '{$properties['property_id']}'";
+        $query = "SELECT COUNT(*) FROM tenants t INNER JOIN houses h on h.house_id = t.tenant_house_id WHERE h.house_property_id = '{$properties['property_id']}'";
         $stmt = $mysqli->prepare($query);
         $stmt->execute();
         $stmt->bind_result($tenants);
         $stmt->fetch();
         $stmt->close();
-        
+
+        /* Projected amount */
+        $query = "SELECT SUM(house_rent) FROM houses  WHERE house_status = 'occupied' AND house_property_id = '{$properties['property_id']}'";
+        $stmt = $mysqli->prepare($query);
+        $stmt->execute();
+        $stmt->bind_result($projected_amount);
+        $stmt->fetch();
+        $stmt->close();
+
+        /* Get 30 days before today */
+        $start_date = date('m/01/Y', strtotime('-1 month'));
+        $end_date = date('m/01/Y', strtotime($start_date . '+1 month'));
+
+
+        /* Received payment */
+        $query = "SELECT SUM(payment_amount) FROM payments p INNER JOIN tenants t ON t.tenant_id = p.payment_tenant_id
+        INNER JOIN houses h ON h.house_id = t.tenant_house_id 
+        WHERE h.house_property_id = '{$properties['property_id']}' AND  p.payment_date  BETWEEN '{$start_date}' AND '{$end_date}'";
+        $stmt = $mysqli->prepare($query);
+        $stmt->execute();
+        $stmt->bind_result($payment_amount);
+        $stmt->fetch();
+        $stmt->close();
     }
 } else {
     /* Tenant */
