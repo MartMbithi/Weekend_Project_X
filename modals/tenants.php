@@ -113,7 +113,7 @@
                                         if (mysqli_num_rows($property_sql) > 0) {
                                             while ($houses = mysqli_fetch_array($property_sql)) {
                                         ?>
-                                                <option value="<?php echo $houses['house_id']; ?>">Property name: <?php echo $houses['property_name'] . ' - House number:' . $houses['house_number']; ?></option>
+                                                <option value="<?php echo $houses['house_id']; ?>">House number: <?php echo  $houses['house_number']; ?></option>
                                         <?php }
                                         } ?>
                                     </select>
