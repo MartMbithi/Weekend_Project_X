@@ -1,3 +1,46 @@
+<!-- Add Tenants -->
+
+<div class="modal fade fixed-right" id="add_tenant_<?php echo $houses['house_id']; ?>" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered  modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header align-items-center">
+                <div class="text-center">
+                    <h6 class="mb-0 text-bold">Register new tenant to house number : <?php echo $houses['house_number']; ?></h6>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation" method="post" enctype="multipart/form-data" role="form">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="">Tenant full names</label>
+                            <input type="text" required name="tenant_name" class="form-control">
+                            <input type="hidden" value="<?php echo $houses['house_id']; ?>" required name="tenant_house_id" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="">Tenant national id</label>
+                            <input type="text" required name="tenant_national_id" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="">Tenant mobile number</label>
+                            <input type="text" required name="tenant_mobile_number" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="">Tenant date registered</label>
+                            <input type="text" required name="tenant_date_of_registration" class="form-control datepicker">
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" name="Add_Tenants" class="btn btn-outline-success">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade fixed-right" id="update_<?php echo $houses['house_id']; ?>" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered  modal-xl" role="document">
         <div class="modal-content">
