@@ -106,123 +106,40 @@ require_once('../partials/head.php');
                 </div>
                 <div class="container">
                     <div class="row">
-                        <?php if ($_SESSION['user_type'] == 'Administrator') { ?>
-                            <div class="col-12 col-sm-6 col-md-3">
-                                <a href="properties" class="text-dark">
-                                    <div class="info-box card-outline card-success">
-                                        <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-hotel"></i></span>
-                                        <div class="info-box-content">
-                                            <span class="info-box-text">Properties</span>
-                                            <span class="info-box-number">
-                                                <?php echo $properties; ?>
-                                            </span>
-                                        </div>
-                                        <!-- /.info-box-content -->
+
+
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <a href="houses" class="text-dark">
+                                <div class="info-box card-outline card-success">
+                                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-home"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Houses</span>
+                                        <span class="info-box-number">
+                                            <?php echo $houses; ?>
+                                        </span>
                                     </div>
-                                    <!-- /.info-box -->
-                                </a>
-                            </div>
+                                    <!-- /.info-box-content -->
+                                </div>
+                                <!-- /.info-box -->
+                            </a>
+                        </div>
 
-
-                            <div class="col-12 col-sm-6 col-md-3">
-                                <a href="houses" class="text-dark">
-                                    <div class="info-box card-outline card-success">
-                                        <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-home"></i></span>
-                                        <div class="info-box-content">
-                                            <span class="info-box-text">Houses</span>
-                                            <span class="info-box-number">
-                                                <?php echo $houses; ?>
-                                            </span>
-                                        </div>
-                                        <!-- /.info-box-content -->
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <a href="tenants" class="text-dark">
+                                <div class="info-box card-outline card-success">
+                                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-users"></i></span>
+                                    <div class="info-box-content">
+                                        <span class="info-box-text">Tenants</span>
+                                        <span class="info-box-number">
+                                            <?php echo $tenants; ?>
+                                        </span>
                                     </div>
-                                    <!-- /.info-box -->
-                                </a>
-                            </div>
+                                    <!-- /.info-box-content -->
+                                </div>
+                                <!-- /.info-box -->
+                            </a>
+                        </div>
 
-                            <div class="col-12 col-sm-6 col-md-3">
-                                <a href="tenants" class="text-dark">
-                                    <div class="info-box card-outline card-success">
-                                        <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-users"></i></span>
-                                        <div class="info-box-content">
-                                            <span class="info-box-text">Tenants</span>
-                                            <span class="info-box-number">
-                                                <?php echo $tenants; ?>
-                                            </span>
-                                        </div>
-                                        <!-- /.info-box-content -->
-                                    </div>
-                                    <!-- /.info-box -->
-                                </a>
-                            </div>
-
-
-                            <div class="col-12 col-sm-6 col-md-3">
-                                <a href="users" class="text-dark">
-                                    <div class="info-box card-outline card-success">
-                                        <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-user-tie"></i></span>
-                                        <div class="info-box-content">
-                                            <span class="info-box-text">System Users</span>
-                                            <span class="info-box-number">
-                                                <?php echo $users; ?>
-                                            </span>
-                                        </div>
-                                        <!-- /.info-box-content -->
-                                    </div>
-                                    <!-- /.info-box -->
-                                </a>
-                            </div>
-                        <?php } else { ?>
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <a href="properties" class="text-dark">
-                                    <div class="info-box card-outline card-success">
-                                        <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-hotel"></i></span>
-                                        <div class="info-box-content">
-                                            <span class="info-box-text">Properties</span>
-                                            <span class="info-box-number">
-                                                <?php echo $properties; ?>
-                                            </span>
-                                        </div>
-                                        <!-- /.info-box-content -->
-                                    </div>
-                                    <!-- /.info-box -->
-                                </a>
-                            </div>
-
-
-
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <a href="houses" class="text-dark">
-                                    <div class="info-box card-outline card-success">
-                                        <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-home"></i></span>
-                                        <div class="info-box-content">
-                                            <span class="info-box-text">Houses</span>
-                                            <span class="info-box-number">
-                                                <?php echo $houses; ?>
-                                            </span>
-                                        </div>
-                                        <!-- /.info-box-content -->
-                                    </div>
-                                    <!-- /.info-box -->
-                                </a>
-                            </div>
-
-                            <div class="col-12 col-sm-6 col-md-4">
-                                <a href="tenants" class="text-dark">
-                                    <div class="info-box card-outline card-success">
-                                        <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-users"></i></span>
-                                        <div class="info-box-content">
-                                            <span class="info-box-text">Tenants</span>
-                                            <span class="info-box-number">
-                                                <?php echo $tenants; ?>
-                                            </span>
-                                        </div>
-                                        <!-- /.info-box-content -->
-                                    </div>
-                                    <!-- /.info-box -->
-                                </a>
-                            </div>
-                        <?php } ?>
 
 
                         <div class="col-12 col-sm-6 col-md-3">
@@ -257,37 +174,6 @@ require_once('../partials/head.php');
                             </a>
                         </div>
 
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <a href="payments" class="text-dark">
-                                <div class="info-box card-outline card-success">
-                                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-hand-holding-usd"></i></span>
-                                    <div class="info-box-content">
-                                        <span class="info-box-text">Cumulative Payments</span>
-                                        <span class="info-box-number">
-                                            Kes <?php echo number_format($payment_amount, 2); ?>
-                                        </span>
-                                    </div>
-                                    <!-- /.info-box-content -->
-                                </div>
-                                <!-- /.info-box -->
-                            </a>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <a href="expenses" class="text-dark">
-                                <div class="info-box card-outline card-success">
-                                    <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-funnel-dollar"></i></span>
-                                    <div class="info-box-content">
-                                        <span class="info-box-text">Cumulative Expenses</span>
-                                        <span class="info-box-number">
-                                            Kes <?php echo number_format($expense_amount, 2); ?>
-                                        </span>
-                                    </div>
-                                    <!-- /.info-box-content -->
-                                </div>
-                                <!-- /.info-box -->
-                            </a>
-                        </div>
                         <div class="col-12 col-sm-6 col-md-6">
                             <a href="payments" class="text-dark">
                                 <div class="info-box card-outline card-success">
@@ -320,30 +206,7 @@ require_once('../partials/head.php');
                             </a>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-12 col-sm-6 col-md-6">
-                            <div class="card card-outline card-success">
-                                <div class="card-header">
-                                    <h5 class="card-title">House Occupancy</h5>
-                                </div>
-                                <div class="card-body">
-                                    <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                                </div>
-                            </div>
-                        </div><!-- /.container-fluid -->
-                        <div class="col-12 col-sm-6 col-md-6">
-                            <div class="card card-outline card-success">
-                                <div class="card-header">
-                                    <h5 class="card-title">Payments Vs Expenses</h5>
-                                </div>
-                                <div class="card-body">
-                                    <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                                </div>
-                            </div>
-                        </div><!-- /.container-fluid -->
-                    </div>
-                    <!-- /.content -->
+                    
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-12">
                             <div class="card card-outline card-success">
@@ -393,60 +256,6 @@ require_once('../partials/head.php');
                                 </div>
                             </div>
                         </div><!-- /.container-fluid -->
-                        <div class="col-12 col-sm-12 col-md-12">
-                            <div class="card card-outline card-success">
-                                <div class="card-header">
-                                    <h5 class="card-title">Recent expenses</h5>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table data_table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>S/no</th>
-                                                <th>Expense Type</th>
-                                                <th>Property</th>
-                                                <th>Amount</th>
-                                                <th>Posted By</th>
-                                                <th>Date Posted</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            $expenses_sql = mysqli_query(
-                                                $mysqli,
-                                                "SELECT * FROM expenses e
-                                                INNER JOIN users u ON u.user_id = e.expense_user_id
-                                                INNER JOIN properties p ON p.property_id = e.expense_property_id
-                                                ORDER BY expense_id ASC"
-                                            );
-                                            if (mysqli_num_rows($expenses_sql) > 0) {
-                                                $cnt = 1;
-                                                while ($expenses = mysqli_fetch_array($expenses_sql)) {
-                                                    if (!empty($expenses['expense_house_number'])) {
-                                                        $property = $expenses['property_name'] . ' - House Number' . $expenses['expense_house_number'];
-                                                    } else {
-                                                        $property = $expenses['property_name'];
-                                                    }
-                                            ?>
-                                                    <tr>
-                                                        <td>
-                                                            <?php echo $cnt; ?>
-                                                        </td>
-                                                        <td><?php echo $expenses['expense_type']; ?></td>
-                                                        <td><?php echo $property; ?></td>
-                                                        <td>Ksh <?php echo number_format($expenses['expense_amount'], 2); ?></td>
-                                                        <td><?php echo $expenses['user_names']; ?></td>
-                                                        <td><?php echo date('d M Y', strtotime($expenses['expense_date'])); ?></td>
-                                                    </tr>
-                                            <?php
-                                                    $cnt = $cnt + 1;
-                                                }
-                                            } ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div><!-- /.container-fluid -->
                     </div>
                 </div>
                 <!-- /.content-wrapper -->
@@ -462,7 +271,6 @@ require_once('../partials/head.php');
         <!-- Scripts -->
         <?php
         require_once('../partials/scripts.php');
-        require_once('../partials/charts.php');
         ?>
 
     </div>
