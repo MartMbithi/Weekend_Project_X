@@ -366,6 +366,9 @@ require_once('../partials/head.php');
                                                             <td><?php echo $houses['house_status']; ?></td>
                                                             <td>Ksh <?php echo number_format($houses['house_rent'], 2); ?></td>
                                                             <td>
+                                                                <?php if ($houses['house_status'] == 'Vacant') { ?>
+                                                                    <a data-toggle="modal" href="#add_tenant_<?php echo $houses['house_id']; ?>" class="badge badge-success"><i class="fas fa-user-plus"></i> Add tenant</a>
+                                                                <?php } ?>
                                                                 <a data-toggle="modal" href="#update_<?php echo $houses['house_id']; ?>" class="badge badge-primary"><i class="fas fa-edit"></i> Edit</a>
                                                             </td>
                                                         </tr>
