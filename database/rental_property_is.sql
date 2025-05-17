@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 01, 2023 at 04:23 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: May 17, 2025 at 08:40 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,15 +32,18 @@ CREATE TABLE `expenses` (
   `expense_user_id` int(200) NOT NULL,
   `expense_type` varchar(200) NOT NULL,
   `expense_amount` varchar(200) NOT NULL,
-  `expense_date` varchar(200) NOT NULL
+  `expense_property_id` int(200) NOT NULL,
+  `expense_date` varchar(200) NOT NULL,
+  `expense_house_number` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `expenses`
 --
 
-INSERT INTO `expenses` (`expense_id`, `expense_user_id`, `expense_type`, `expense_amount`, `expense_date`) VALUES
-(1, 1, 'House renovations', '45000', '03/30/2023');
+INSERT INTO `expenses` (`expense_id`, `expense_user_id`, `expense_type`, `expense_amount`, `expense_property_id`, `expense_date`, `expense_house_number`) VALUES
+(3, 1, 'Renovation of block B', '45000', 5, '05/09/2025', ''),
+(4, 1, 'Renovation ', '10000', 5, '05/09/2025', '45A and 56C');
 
 -- --------------------------------------------------------
 
@@ -62,14 +65,14 @@ CREATE TABLE `houses` (
 --
 
 INSERT INTO `houses` (`house_id`, `house_property_id`, `house_number`, `house_category`, `house_status`, `house_rent`) VALUES
-(1, 1, '001', 'Singles', 'Occupied', '3900'),
-(2, 1, '002', 'Singles', 'Occupied', '3500'),
-(3, 2, '003', 'Singles', 'Vacant', '3500'),
-(6, 1, '008', 'Bedsitters', 'Occupied', '7800'),
-(7, 1, 'A120', 'Bedsitters', 'Occupied', '4500'),
-(8, 4, 'A001', 'Singles', 'Vacant', '4500'),
-(9, 1, 'A002', 'Singles', 'Vacant', '4500'),
-(10, 1, 'A003', 'Singles', 'Vacant', '4500');
+(1, 5, '001', 'Singles', 'Occupied', '3900'),
+(2, 5, '002', 'Singles', 'Occupied', '3500'),
+(3, 5, '003', 'Singles', 'Vacant', '3500'),
+(6, 5, '008', 'Bedsitters', 'Occupied', '7800'),
+(7, 5, 'A120', 'Bedsitters', 'Occupied', '4500'),
+(8, 5, 'A001', 'Singles', 'Vacant', '4500'),
+(9, 5, 'A002', 'Singles', 'Vacant', '4500'),
+(10, 5, 'A003', 'Singles', 'Vacant', '4500');
 
 -- --------------------------------------------------------
 
@@ -106,17 +109,28 @@ INSERT INTO `payments` (`payment_id`, `payment_ref_code`, `payment_invoice_numbe
 CREATE TABLE `properties` (
   `property_id` int(200) NOT NULL,
   `property_name` varchar(200) NOT NULL,
-  `property_location` longtext NOT NULL
+  `property_location` longtext NOT NULL,
+  `property_caretaker_id` int(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `properties`
 --
 
-INSERT INTO `properties` (`property_id`, `property_name`, `property_location`) VALUES
-(1, 'Peak View Appartments', 'Wote Town Along Wote-Kathonzweni Road'),
-(2, 'Iyke Flatts', 'Wote CBD Opposite Ngooni Supermarket'),
-(4, 'Tripple G Flatts', 'Kathonzweni - Along Wote-Makindu Road');
+INSERT INTO `properties` (`property_id`, `property_name`, `property_location`, `property_caretaker_id`) VALUES
+(5, 'Turn Yke Heights', 'Nairobi - Off Mombasa Road', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `property_utilities`
+--
+
+CREATE TABLE `property_utilities` (
+  `property_utilities_id` int(200) NOT NULL,
+  `property_utility_utility_id` int(200) NOT NULL,
+  `property_utility_property_id` int(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -154,6 +168,7 @@ CREATE TABLE `users` (
   `user_type` varchar(200) NOT NULL,
   `user_names` varchar(200) NOT NULL,
   `user_login_name` varchar(200) NOT NULL,
+  `user_contact` varchar(200) NOT NULL,
   `user_password` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -161,8 +176,29 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_type`, `user_names`, `user_login_name`, `user_password`) VALUES
-(1, 'Administrator', 'System', 'sysadmin', 'a69681bcf334ae130217fea4505fd3c994f5683f');
+INSERT INTO `users` (`user_id`, `user_type`, `user_names`, `user_login_name`, `user_contact`, `user_password`) VALUES
+(1, 'Administrator', 'Martin Mbithi', 'sysadmin', '+254740847563', 'a69681bcf334ae130217fea4505fd3c994f5683f'),
+(5, 'Caretaker', 'Martin', 'mart', '+25437229776', 'a69681bcf334ae130217fea4505fd3c994f5683f');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `utilities`
+--
+
+CREATE TABLE `utilities` (
+  `utility_id` int(200) NOT NULL,
+  `utility_name` varchar(200) NOT NULL,
+  `utility_cost` varchar(200) NOT NULL,
+  `utility_status` int(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `utilities`
+--
+
+INSERT INTO `utilities` (`utility_id`, `utility_name`, `utility_cost`, `utility_status`) VALUES
+(2, 'Water', '100', 0);
 
 --
 -- Indexes for dumped tables
@@ -173,7 +209,8 @@ INSERT INTO `users` (`user_id`, `user_type`, `user_names`, `user_login_name`, `u
 --
 ALTER TABLE `expenses`
   ADD PRIMARY KEY (`expense_id`),
-  ADD KEY `ExpenseUserID` (`expense_user_id`);
+  ADD KEY `ExpenseUserID` (`expense_user_id`),
+  ADD KEY `ExpensePropertyID` (`expense_property_id`);
 
 --
 -- Indexes for table `houses`
@@ -193,7 +230,16 @@ ALTER TABLE `payments`
 -- Indexes for table `properties`
 --
 ALTER TABLE `properties`
-  ADD PRIMARY KEY (`property_id`);
+  ADD PRIMARY KEY (`property_id`),
+  ADD KEY `CaretakerID` (`property_caretaker_id`);
+
+--
+-- Indexes for table `property_utilities`
+--
+ALTER TABLE `property_utilities`
+  ADD PRIMARY KEY (`property_utilities_id`),
+  ADD KEY `PropertyID` (`property_utility_property_id`),
+  ADD KEY `UtilityID` (`property_utility_utility_id`);
 
 --
 -- Indexes for table `tenants`
@@ -209,6 +255,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 --
+-- Indexes for table `utilities`
+--
+ALTER TABLE `utilities`
+  ADD PRIMARY KEY (`utility_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -216,7 +268,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
-  MODIFY `expense_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `expense_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `houses`
@@ -234,7 +286,13 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `properties`
 --
 ALTER TABLE `properties`
-  MODIFY `property_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `property_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `property_utilities`
+--
+ALTER TABLE `property_utilities`
+  MODIFY `property_utilities_id` int(200) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tenants`
@@ -246,7 +304,13 @@ ALTER TABLE `tenants`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `utilities`
+--
+ALTER TABLE `utilities`
+  MODIFY `utility_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -256,6 +320,7 @@ ALTER TABLE `users`
 -- Constraints for table `expenses`
 --
 ALTER TABLE `expenses`
+  ADD CONSTRAINT `ExpensePropertyID` FOREIGN KEY (`expense_property_id`) REFERENCES `properties` (`property_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ExpenseUserID` FOREIGN KEY (`expense_user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -269,6 +334,19 @@ ALTER TABLE `houses`
 --
 ALTER TABLE `payments`
   ADD CONSTRAINT `PaymentRelation` FOREIGN KEY (`payment_tenant_id`) REFERENCES `tenants` (`tenant_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `properties`
+--
+ALTER TABLE `properties`
+  ADD CONSTRAINT `CaretakerID` FOREIGN KEY (`property_caretaker_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `property_utilities`
+--
+ALTER TABLE `property_utilities`
+  ADD CONSTRAINT `PropertyID` FOREIGN KEY (`property_utility_property_id`) REFERENCES `utilities` (`utility_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `UtilityID` FOREIGN KEY (`property_utility_utility_id`) REFERENCES `properties` (`property_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tenants`
