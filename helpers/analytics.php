@@ -159,6 +159,8 @@ if ($_SESSION['user_type'] == 'Administrator') {
         "SELECT * FROM properties WHERE property_caretaker_id = '{$_SESSION['user_id']}'"
     );
     while ($properties = mysqli_fetch_array($property_sql)) {
+        $property_name = $properties['property_name'];
+        global $property_name;
         /* Caretaker Analytics */
 
         /* All Houses */
@@ -218,5 +220,4 @@ if ($_SESSION['user_type'] == 'Administrator') {
         $stmt->close();
     }
 } else {
-   
 }

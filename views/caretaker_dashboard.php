@@ -86,11 +86,11 @@ require_once('../partials/head.php');
                 <div class="container">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0"> Dashboard</h1>
+                            <h1 class="m-0"> Dashboard - <?php echo $property_name; ?></h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
+                                <li class="breadcrumb-item"><a href="caretaker_dashboard">Home</a></li>
                                 <li class="breadcrumb-item active">Dashboard</li>
                             </ol>
                         </div><!-- /.col -->
@@ -206,7 +206,7 @@ require_once('../partials/head.php');
                             </a>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-12">
                             <div class="card card-outline card-success">
@@ -232,6 +232,8 @@ require_once('../partials/head.php');
                                                 "SELECT * FROM payments p
                                                 INNER JOIN tenants t ON t.tenant_id = p.payment_tenant_id
                                                 INNER JOIN houses h ON h.house_id = t.tenant_house_id
+                                                INNER JOIN properties pr ON pr.property_id = h.house_property_id
+                                                WHERE pr.property_caretaker_id = '{$_SESSION['user_id']}'
                                                 ORDER BY payment_id ASC"
                                             );
                                             if (mysqli_num_rows($payments_sql) > 0) {
