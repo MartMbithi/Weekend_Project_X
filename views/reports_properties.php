@@ -103,62 +103,7 @@ require_once('../partials/head.php');
             <!-- Main content -->
             <div class="content">
                 <div class="container">
-                    <div class="d-flex flex-row-reverse bd-highlight">
-                        <button type="button" data-toggle="modal" data-target="#add_modal" class="btn btn-outline-success">
-                            Add property
-                        </button>
-                    </div>
                     <hr>
-                    <!-- Add Modal -->
-                    <div class="modal fade fixed-right" id="add_modal" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered  modal-xl" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header align-items-center">
-                                    <div class="text-center">
-                                        <h6 class="mb-0 text-bold">Register new property</h6>
-                                    </div>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form class="needs-validation" method="post" enctype="multipart/form-data" role="form">
-                                        <div class="row">
-                                            <div class="form-group col-md-6">
-                                                <label for="">Property name</label>
-                                                <input type="text" required name="property_name" class="form-control">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="">Property location</label>
-                                                <input type="text" required name="property_location" class="form-control">
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label for="">Property caretaker</label>
-                                                <select type="text" required name="property_caretaker_id" class="form-control select2bs4">
-                                                    <option>Select caretaker</option>
-                                                    <?php
-                                                    $users_sql = mysqli_query(
-                                                        $mysqli,
-                                                        "SELECT * FROM users WHERE user_type = 'Caretaker'"
-                                                    );
-                                                    if (mysqli_num_rows($users_sql) > 0) {
-                                                        while ($users = mysqli_fetch_array($users_sql)) {
-                                                    ?>
-                                                            <option value="<?php echo $users['user_id']; ?>"><?php echo $users['user_names']; ?></option>
-                                                    <?php }
-                                                    } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="text-right">
-                                            <button type="submit" name="Add_Property" class="btn btn-outline-success">Add</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Modal -->
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-12">
                             <div class="card card-outline card-success">
