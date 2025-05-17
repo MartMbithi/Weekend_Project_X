@@ -1,6 +1,6 @@
 <?php
 /*
- *   Crafted On Sat May 17 2025
+ *   Crafted On Thu May 15 2025
  *   From his finger tips, through his IDE to your deployment environment at full throttle with no bugs, loss of data,
  *   fluctuations, signal interference, or doubt—it can only be
  *   the legendary coding wizard, Martin Mbithi (martin@devlan.co.ke, www.martmbithi.github.io)
@@ -65,22 +65,54 @@
  *
  */
 
+/* Add Utility */
+if (isset($_POST['Add_Utility'])) {
+    $utility_name = mysqli_real_escape_string($mysqli, $_POST['utility_name']);
+    $utility_cost = mysqli_real_escape_string($mysqli, $_POST['utility_cost']);
+    $utility_status = mysqli_real_escape_string($mysqli, $_POST['utility_status']);
 
-/* Procedural Database Connecrions */
-$dbuser = "root"; /* Database Username */
-$dbpass = ""; /* Database Username Password */
-$host = "localhost"; /* Database Host */
-$db = "rental_property_is";  /* Database Name */
-$mysqli = new mysqli($host, $dbuser, $dbpass, $db); /* Connection Function */
-
-/* Determine if its running on HTTP */
-if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
-    $uri = 'https://';
-} else {
-    $uri = 'http://';
+    /* Persist */
+    if (mysqli_query(
+        $mysqli,
+        "INSERT INTO utilities (utility_name, utility_cost, utility_status)
+        VALUES ('{$utility_name}', '{$utility_cost}', '{$utility_status}')"
+    )) {
+        $success = "Utility addded  successfully";
+    } else {
+        $err = "Something went wrong, please try again";
+    }
 }
-$uri .= $_SERVER['HTTP_HOST'];
 
-/* Global directory */
-$base_dir = $uri . "/property_manager/views/";
-global $base_dir;
+/* Update Utility */
+if (isset($_POST['Update_Utility'])) {
+    $utility_id = mysqli_real_escape_string($mysqli, $_POST['utility_id']);
+    $utility_name = mysqli_real_escape_string($mysqli, $_POST['utility_name']);
+    $utility_cost = mysqli_real_escape_string($mysqli, $_POST['utility_cost']);
+    $utility_status = mysqli_real_escape_string($mysqli, $_POST['utility_status']);
+
+    /* Persist */
+    if (mysqli_query(
+        $mysqli,
+        "UPDATE utilities SET utility_name = '{$utility_name}', utility_cost = '{$utility_cost}', utility_status = '{$utility_status}' 
+        WHERE utility_id = '{$utility_id}'"
+    )) {
+        $success = "Utility updated successfully";
+    } else {
+        $err = "Something went wrong, please try again";
+    }
+}
+
+/* Delete Utility */
+if (isset($_POST['Delete_Utility'])) {
+    $utility_id = mysqli_real_escape_string($mysqli, $_POST['utility_id']);
+
+    /* Persist */
+    if (mysqli_query(
+        $mysqli,
+        "DELETE FROM utilities WHERE utility_id = '{$utility_id}'"
+    )) {
+        $success = "Utility deleted successfully";
+    } else {
+        $err = "Something went wrong, please try again";
+    }
+}

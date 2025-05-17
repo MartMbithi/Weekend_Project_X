@@ -12,17 +12,37 @@
             <div class="modal-body">
                 <form class="needs-validation" method="post" enctype="multipart/form-data" role="form">
                     <div class="row">
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-6">
                             <label for="">Expense type</label>
                             <input type="hidden" value="<?php echo $expenses['expense_id']; ?>" required name="expense_id" class="form-control">
                             <input type="text" value="<?php echo $expenses['expense_type']; ?>" required name="expense_type" class="form-control">
                         </div>
                         <div class="form-group col-md-6">
+                            <label for="">Property details</label>
+                            <select type="text" required name="expense_property_id" class="form-control select2bs4" style="width: 100%;">
+                                <option value="<?php echo $expenses['property_id']; ?>"><?php echo $expenses['property_name']; ?></option>
+                                <?php
+                                $property_sql = mysqli_query(
+                                    $mysqli,
+                                    "SELECT * FROM properties WHERE  property_id != '{$expenses['property_id']}'"
+                                );
+                                if (mysqli_num_rows($property_sql) > 0) {
+                                    while ($houses = mysqli_fetch_array($property_sql)) {
+                                ?>
+                                        <option value="<?php echo $houses['property_id']; ?>"><?php echo $houses['property_name']; ?></option>
+                                <?php }
+                                } ?>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="">House number (optional)</label>
+                            <input type="text" name="expense_house_number" value="<?php echo $expenses['expense_house_number']; ?>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-4">
                             <label for="">Expense amount</label>
                             <input type="text" value="<?php echo $expenses['expense_amount']; ?>" required name="expense_amount" class="form-control">
                         </div>
-
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-">
                             <label for="">Date</label>
                             <input type="text" value="<?php echo $expenses['expense_date']; ?>" required name="expense_date" class="form-control datepicker">
                         </div>

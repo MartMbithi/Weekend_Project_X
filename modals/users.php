@@ -13,19 +13,23 @@
             <div class="modal-body">
                 <form class="needs-validation" method="post" enctype="multipart/form-data" role="form">
                     <div class="row">
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-6">
                             <label for="">Full names</label>
                             <input type="hidden" required name="user_id" value="<?php echo $users['user_id']; ?>" class="form-control">
                             <input type="text" required name="user_names" value="<?php echo $users['user_names']; ?>" class="form-control">
                         </div>
                         <div class="form-group col-md-6">
+                            <label for="">Contacts</label>
+                            <input type="text" required name="user_contact" value="<?php echo $users['user_contact']; ?>" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
                             <label for="">Access level</label>
                             <select type="text" required name="user_type" class="form-control select2bs4">
-                                <?php if ($users['user_type'] == 'User') : ?>
-                                    <option selected>User</option>
+                                <?php if ($users['user_type'] == 'Caretaker') : ?>
+                                    <option selected>Caretaker</option>
                                     <option>Administrator</option>
                                 <?php else : ?>
-                                    <option>User</option>
+                                    <option>Caretaker</option>
                                     <option selected>Administrator</option>
                                 <?php endif; ?>
                             </select>
